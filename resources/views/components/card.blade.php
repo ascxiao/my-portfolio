@@ -2,7 +2,7 @@
 
 <a href="/index/{{$id}}" class="w-full sm:w-48 md:w-48 lg:w-64 block">
         <div class="card w-full flex flex-row sm:flex-col rounded-2xl overflow-hidden text-left h-20 sm:h-64 md:h-68 lg:h-72 item-center transition-transform duration-300 hover:scale-105">
-            <div class="w-16 sm:w-full aspect-square sm:aspect-video flex-shrink-0">
+            <div class="w-16 sm:w-full aspect-square sm:aspect-video shrink-0">
                 <img src={{$image}} alt="" class="w-full h-full object-cover">
             </div>
 
@@ -12,7 +12,7 @@
                     <x-tags category='Game'></x-tags>
                     <x-tags category='Game'></x-tags>
                 </div>
-                <p class="card-text text-[10px] sm:text-sm hidden sm:block">{{html_entity_decode($description, ENT_QUOTES)}}</p>
+                <p class="card-text text-[8px] sm:text-sm hidden sm:block">{{html_entity_decode($description, ENT_QUOTES)}}</p>
             </div>
     </div>
 </a>
