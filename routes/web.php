@@ -29,7 +29,7 @@ Route::get('/devlogs', function () {
 
 Route::get('/case_study', function () {
     $test = [
-        ['id' => '1', 'title' => 'Sample Article', 'date' => 'December 1, 2025', 'img' => '/images/sample.png', 'contents' => 'RAWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR'],
+        ['id'=>'1', 'title'=>'Sample Article', 'date'=>'December 1, 2025', 'img'=>'/images/sample.png', 'contents'=>'RAWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR'],
     ];
 
     return view('pages.case_study', ['test' => $test]);
@@ -41,6 +41,10 @@ Route::get('/artworks', function () {
 
 Route::get('/case/{id}', function($id){
     return view('pages.case', ["id" => $id]);
+});
+
+Route::get('/devlog', function(){
+    return view('pages.devlog');
 });
 
 Route::get('/show/{id}', function($id){

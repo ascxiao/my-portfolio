@@ -61,7 +61,7 @@ textarea {
     @apply max-w-5xl mx-auto px-12 py-8;
 }
 .card {
-    @apply bg-white rounded border border-gray-200 flex;
+    @apply bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex;
 }
 
 .tag {
