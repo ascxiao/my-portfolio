@@ -61,11 +61,11 @@ textarea {
     @apply max-w-5xl mx-auto px-12 py-8;
 }
 .card {
-    @apply bg-white rounded border border-gray-200 flex;
+    @apply bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex;
 }
 
 .tag {
-    @apply bg-white rounded-4xl border-2 border-gray-200 flex items-center justify-center h-6 px-3 w-fit;
+    @apply bg-white rounded-md border-2 border-gray-200 flex items-center justify-center h-5 p-1 w-fit;
 }
 
 .card-text {
@@ -82,4 +82,50 @@ textarea {
 .card-text {
     overflow-wrap: anywhere;
     word-break: break-word;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+    gap: 1rem;
+    grid-auto-flow: dense;
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Size variations based on aspect ratio */
+.size-wide {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.size-tall {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+.size-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.size-standard {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* Modal animations */
+.modal {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
