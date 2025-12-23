@@ -1,5 +1,5 @@
 @props(['category' => ''])
 
-<div class = "tag">
-    <p class="text-[8px]! sm:text-[18px]! md:text-xs!">{{$category}}</p>
+<div {{ $attributes->merge(['class' => 'tag']) }}>
+    <p class="text-[10px]! md:[12px]!">{{$category}}</p>
 </div>

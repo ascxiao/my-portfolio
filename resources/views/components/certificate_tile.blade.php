@@ -10,7 +10,7 @@
             <h3 class="text-[12px]! sm:text-[12px]! md:text-base! font-semibold leading-tight">{{html_entity_decode($certificate, ENT_QUOTES)}}</h3>
             <p class="text-[10px]! sm:text-[12px]! md:text-sm!">Provided by {{$provider}}</p>
             <p class="text-[10px]! sm:text-[8px]! md:text-sm!">Acquired date: {{$date}}</p>
-            <p class="text-[8px]! sm:text-sm hidden sm:block md:text-sm!">{{html_entity_decode($desc, ENT_QUOTES)}}</p>
+            <p class="text-[8px]! sm:text-sm hidden sm:block md:text-sm! overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{html_entity_decode($desc, ENT_QUOTES)}}</p>
         </div>
     </div>
 </a>

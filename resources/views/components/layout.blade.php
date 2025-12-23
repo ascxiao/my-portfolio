@@ -17,17 +17,15 @@
                 </svg>
             </a>
             
-            <!-- Desktop Navigation -->
             <div class="hidden md:flex gap-6 font-bold text-sm lg:text-base">
                 <a href="#about" class="hover:text-gray-600 whitespace-nowrap">About me</a>
                 <a href="/projects" class="hover:text-gray-600">Projects</a>
                 <a href="/certification" class="hover:text-gray-600">Certifications</a>
-                <a href="#contact" class="hover:text-gray-600">Devlogs</a>
-                <a href="#contact" class="hover:text-gray-600">Case Studies</a>
-                <a href="#contact" class="hover:text-gray-600">Artworks</a>
+                <a href="/devlogs" class="hover:text-gray-600">Devlogs</a>
+                <a href="/case_study" class="hover:text-gray-600">Case Studies</a>
+                <a href="/artworks" class="hover:text-gray-600">Artworks</a>
             </div>
 
-            <!-- Hamburger Button (Mobile) -->
             <button id="menuToggle" class="md:hidden p-2 hover:bg-gray-100 rounded-lg" aria-label="Toggle menu">
                 <svg id="hamburgerIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -38,20 +36,18 @@
             </button>
         </nav>
 
-        <!-- Mobile Drawer -->
         <div id="mobileDrawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden z-50">
-            <div class="flex flex-col p-6 gap-4 mt-16">
+            <div class="flex flex-col p-6 gap-4 mt-16 font-bold">
                 <a href="#about" class="hover:text-gray-600 text-base py-2 border-b">About me</a>
                 <a href="/projects" class="hover:text-gray-600 text-base py-2 border-b">Projects</a>
                 <a href="/certification" class="hover:text-gray-600 text-base py-2 border-b">Certifications</a>
-                <a href="#contact" class="hover:text-gray-600 text-base py-2 border-b">Devlogs</a>
-                <a href="#contact" class="hover:text-gray-600 text-base py-2 border-b">Case Studies</a>
-                <a href="#contact" class="hover:text-gray-600 text-base py-2">Artworks</a>
+                <a href="/devlogs" class="hover:text-gray-600 text-base py-2 border-b">Devlogs</a>
+                <a href="/case_study" class="hover:text-gray-600 text-base py-2 border-b">Case Studies</a>
+                <a href="/artworks" class="hover:text-gray-600 text-base py-2">Artworks</a>
             </div>
         </div>
 
-        <!-- Overlay -->
-        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden md:hidden z-40"></div>
+        <div id="overlay" class="fixed inset-0 hidden md:hidden z-40" style="background-color: rgba(0, 56, 23, 0.2);"></div>
     </header>
 
     <main>
@@ -60,8 +56,8 @@
         </div>
     </main>
 
-    <footer class="px-4 md:px-16 lg:px-12 xl:px-72 bg-white">
-        <hr class= " border-gray-300 py-2">
+    <footer class="px-4 md:px-16 lg:px-12 xl:px-72 bg-white pt-4">
+        <hr class= " border-gray-300">
         <div>
             <div class="text-center pt-4">
                 <h4 class="text-sm lg:text-base">Contact me</h4> 

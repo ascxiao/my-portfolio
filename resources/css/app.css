@@ -83,3 +83,49 @@ textarea {
     overflow-wrap: anywhere;
     word-break: break-word;
 }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+    gap: 1rem;
+    grid-auto-flow: dense;
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Size variations based on aspect ratio */
+.size-wide {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.size-tall {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+.size-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.size-standard {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* Modal animations */
+.modal {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
