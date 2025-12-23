@@ -1,19 +1,13 @@
-<x-layout title='kaluroos'>
-    <x-segment title="Projects">
+<x-layout title='Projects'>
+    <div class="lg:p-4 grid justify-center">
+        <h2>Projects</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
         <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
         <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
-    </x-segment>
-
-    <x-segment title="Certifications">
         <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
         <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
         <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
-    </x-segment>
-
-    <x-segment title="Case Studies">
-        <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
-        <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
-        <x-card project="La-um's Conquest" description='meowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww' id=1></x-card>
-    </x-segment>
+    </div>
 </x-layout>

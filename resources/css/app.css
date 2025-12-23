@@ -65,7 +65,7 @@ textarea {
 }
 
 .tag {
-    @apply bg-white rounded-4xl border-2 border-gray-200 flex items-center justify-center h-6 px-3 w-fit;
+    @apply bg-white rounded-md border-2 border-gray-200 flex items-center justify-center h-6 px-3 w-fit;
 }
 
 .card-text {
