@@ -44,8 +44,9 @@
             </ul>
         </div>
 
-        <p class="text-[8px]! sm:text-sm hidden sm:block md:text-sm! overflow-hidden" 
-            style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-            {{html_entity_decode('NDFVJSKGB DHJSFGBHJDFSBGHJDFSBVGHFDSBGHDJKSBGHJDFSB GVHJFDS GHVJFDB SVBDFB SHJF VFDB VHJDBVHJKDFB VHJF HJF HJVB FDHJVB HJDB FHJDKSB HJLDF HDJF HJD VB DHJSVB DSHAFBHDJABV DBFA VFDBHVJDBFNREOFQHPFGRBHEWG RDFB BDH', ENT_QUOTES)}}</p>
+        <h2>Did something</h2>
+        <p>
+            {{html_entity_decode('NDFVJSKGB DHJSFGBHJDFSBGHJDFSBVGHFDSBGHDJKSBGHJDFSB GVHJFDS GHVJFDB SVBDFB SHJF VFDB VHJDBVHJKDFB VHJF HJF HJVB FDHJVB HJDB FHJDKSB HJLDF HDJF HJD VB DHJSVB DSHAFBHDJABV DBFA VFDBHVJDBFNREOFQHPFGRBHEWG RDFB BDH', ENT_QUOTES)}}
+        </p>
     </div>
 </x-layout>

@@ -15,6 +15,10 @@ Route::get('/test', function () {
     return view('test', ["greeting" => "hello", "ninjas" => $ninjas]);
 });
 
+Route::get('/about_me', function () {
+    return view('pages.about_me');
+});
+
 Route::get('/projects', function () {
     return view('pages.projects');
 });

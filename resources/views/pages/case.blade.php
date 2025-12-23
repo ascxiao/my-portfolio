@@ -1,16 +1,16 @@
 <x-layout>
     <!-- Hero Section -->
-    <div class="bg-linear-to-br from-green-600 to-blue-900 text-white">
+    <div class="bg-white">
         <div class="max-w-5xl mx-auto px-6 py-20">
             <div class="flex gap-3 mb-6">
-                <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm font-medium">UX Design</span>
-                <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm font-medium">E-commerce</span>
-                <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm font-medium">2024</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-medium text-gray-700">UX Design</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-medium text-gray-700">E-commerce</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-medium text-gray-700">2024</span>
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">
                 E-commerce Redesign: Increasing Conversion by 45%
             </h1>
-            <p class="text-xl text-blue-100 leading-relaxed max-w-3xl">
+            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl">
                 Redesigning the checkout experience for a major retailer to reduce cart abandonment and improve user satisfaction through streamlined navigation and trust-building elements.
             </p>
         </div>

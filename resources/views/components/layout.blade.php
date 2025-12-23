@@ -1,6 +1,6 @@
 @props(['title' => ''])
 
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     
     @vite('resources/css/app.css')
 </head>
-<body >
+<body>
     <header class="relative">
         <nav class="flex items-center justify-between px-4 md:px-16 lg:px-64 xl:px-72 h-16 md:h-12">
             <a href="{{ url('/') }}" class="md:px-8" aria-label="Home">
@@ -18,7 +18,7 @@
             </a>
             
             <div class="hidden md:flex gap-6 font-bold text-sm lg:text-base">
-                <a href="#about" class="hover:text-gray-600 whitespace-nowrap">About me</a>
+                <a href="about_me" class="hover:text-gray-600 whitespace-nowrap">About me</a>
                 <a href="/projects" class="hover:text-gray-600">Projects</a>
                 <a href="/certification" class="hover:text-gray-600">Certifications</a>
                 <a href="/devlogs" class="hover:text-gray-600">Devlogs</a>
@@ -38,7 +38,7 @@
 
         <div id="mobileDrawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden z-50">
             <div class="flex flex-col p-6 gap-4 mt-16 font-bold">
-                <a href="#about" class="hover:text-gray-600 text-base py-2 border-b">About me</a>
+                <a href="/about_me" class="hover:text-gray-600 text-base py-2 border-b">About me</a>
                 <a href="/projects" class="hover:text-gray-600 text-base py-2 border-b">Projects</a>
                 <a href="/certification" class="hover:text-gray-600 text-base py-2 border-b">Certifications</a>
                 <a href="/devlogs" class="hover:text-gray-600 text-base py-2 border-b">Devlogs</a>
