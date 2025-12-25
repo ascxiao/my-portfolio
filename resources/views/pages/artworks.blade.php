@@ -43,112 +43,112 @@
     </div>
 </div>
 
-    <script>
-        const galleryItems = document.querySelectorAll('#gallery > div');
-        const modal = document.getElementById('modal');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDate = document.getElementById('modalDate');
-        const modalCounter = document.getElementById('modalCounter');
-        const closeModalBtn = document.getElementById('closeModal');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        
-        let currentIndex = 0;
-        const totalItems = galleryItems.length;
+<script>
+    const galleryItems = document.querySelectorAll('#gallery > div');
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDate = document.getElementById('modalDate');
+    const modalCounter = document.getElementById('modalCounter');
+    const closeModalBtn = document.getElementById('closeModal');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let currentIndex = 0;
+    const totalItems = galleryItems.length;
 
-        // Open modal
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentIndex = index;
+    // Open modal
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentIndex = index;
+            openModal();
+        });
+    });
+
+    function openModal() {
+        const currentItem = galleryItems[currentIndex];
+        const img = currentItem.querySelector('img');
+        const titleElement = currentItem.querySelector('h3');
+        const dateElement = currentItem.querySelector('p');
+        
+        const title = titleElement ? titleElement.textContent : 'Untitled';
+        const date = dateElement ? dateElement.textContent : 'Unknown Date';
+
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        modalTitle.textContent = title;
+        modalDate.textContent = date;
+        modalCounter.textContent = `${currentIndex + 1} / ${totalItems}`;
+        
+        console.log('Title:', title, 'Date:', date); // Debug log
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Navigation
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        openModal();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % totalItems;
+        openModal();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('hidden')) {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
                 openModal();
-            });
-        });
-
-        function openModal() {
-            const currentItem = galleryItems[currentIndex];
-            const img = currentItem.querySelector('img');
-            const titleElement = currentItem.querySelector('h3');
-            const dateElement = currentItem.querySelector('p');
-            
-            const title = titleElement ? titleElement.textContent : 'Untitled';
-            const date = dateElement ? dateElement.textContent : 'Unknown Date';
-
-            modalImage.src = img.src;
-            modalImage.alt = img.alt;
-            modalTitle.textContent = title;
-            modalDate.textContent = date;
-            modalCounter.textContent = `${currentIndex + 1} / ${totalItems}`;
-            
-            console.log('Title:', title, 'Date:', date); // Debug log
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal
-        closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-
-        // Navigation
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-            openModal();
-        });
-
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currentIndex = (currentIndex + 1) % totalItems;
-            openModal();
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (!modal.classList.contains('hidden')) {
-                if (e.key === 'Escape') closeModal();
-                if (e.key === 'ArrowLeft') {
-                    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-                    openModal();
-                }
-                if (e.key === 'ArrowRight') {
-                    currentIndex = (currentIndex + 1) % totalItems;
-                    openModal();
-                }
             }
-        });
-        
-        function calculateSizes() {
-            galleryItems.forEach(item => {
-                const img = item.querySelector('img');
-                img.addEventListener('load', function() {
-                    const aspectRatio = this.naturalWidth / this.naturalHeight;
-                    
-                    // Remove existing size classes
-                    item.classList.remove('size-wide', 'size-tall', 'size-large', 'size-standard');
-                    
-                    // Apply size based on aspect ratio
-                    if (aspectRatio > 1.5) {
-                        item.classList.add('size-wide');
-                    } else if (aspectRatio < 0.8) {
-                        item.classList.add('size-tall');
-                    } else if (aspectRatio > 1.2) {
-                        item.classList.add('size-large');
-                    } else {
-                        item.classList.add('size-standard');
-                    }
-                });
-            });
+            if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % totalItems;
+                openModal();
+            }
         }
+    });
+    
+    function calculateSizes() {
+        galleryItems.forEach(item => {
+            const img = item.querySelector('img');
+            img.addEventListener('load', function() {
+                const aspectRatio = this.naturalWidth / this.naturalHeight;
+                
+                // Remove existing size classes
+                item.classList.remove('size-wide', 'size-tall', 'size-large', 'size-standard');
+                
+                // Apply size based on aspect ratio
+                if (aspectRatio > 1.5) {
+                    item.classList.add('size-wide');
+                } else if (aspectRatio < 0.8) {
+                    item.classList.add('size-tall');
+                } else if (aspectRatio > 1.2) {
+                    item.classList.add('size-large');
+                } else {
+                    item.classList.add('size-standard');
+                }
+            });
+        });
+    }
 
-        calculateSizes();
-    </script>
+    calculateSizes();
+</script>

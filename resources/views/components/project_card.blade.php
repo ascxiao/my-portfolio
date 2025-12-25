@@ -1,4 +1,4 @@
-@props(['project' => '', 'desc' => '', 'img' => '/images/sample.png', 'tags' => ['Game'], 'duration' => 'Ongoing'])
+@props(['title' => '', 'desc' => '', 'img' => '/images/sample.png', 'tags' => ['Game'], 'duration' => 'Ongoing'])
 
 <a href="" class="group">
     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
@@ -12,7 +12,7 @@
                     @endforeach
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                {{html_entity_decode($project, ENT_QUOTES)}}
+                {{html_entity_decode($title, ENT_QUOTES)}}
             </h3>
             <p class="text-gray-600 text-sm mb-4">
                 {{$desc}}

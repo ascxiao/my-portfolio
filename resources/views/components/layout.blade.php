@@ -18,7 +18,7 @@
             </a>
             
             <div class="hidden md:flex gap-6 font-bold text-sm lg:text-base">
-                <a href="about_me" class="hover:text-gray-600 whitespace-nowrap">About me</a>
+                <a href="/about_me" class="hover:text-gray-600 whitespace-nowrap">About me</a>
                 <a href="/projects" class="hover:text-gray-600">Projects</a>
                 <a href="/certification" class="hover:text-gray-600">Certifications</a>
                 <a href="/devlogs" class="hover:text-gray-600">Devlogs</a>

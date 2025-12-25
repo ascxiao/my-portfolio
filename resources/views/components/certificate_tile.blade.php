@@ -1,6 +1,6 @@
-@props(['certificate' => 'Google UX Design Certificate', 'provider' => 'Google Careers', 'date' => 'December 5, 2025', 'desc' => 'Testing', 'href' => '#'])
+@props(['certificate' => 'Google UX Design Certificate', 'provider' => 'Google Careers', 'date' => 'December 5, 2025', 'desc' => 'Testing', 'src' => 'images/sample.png', 'link' => 'facebook.com'])
 
-<a href={{$href}} class="card bg-red-600 max-h-36 sm:max-h-36 md:max-h-56 lg:max-h-64 p-2 sm:p-4 transition-transform duration-300 hover:scale-105 block">
+<div class="card bg-red-600 max-h-36 sm:max-h-36 md:max-h-56 lg:max-h-64 p-2 sm:p-4 transition-transform duration-300 hover:scale-105 block">
     <div class="aspect-square sm:aspect-square md:aspect-video h-auto">
         <img src="images/sample.png" alt="" class="w-full h-full object-cover">
     </div>
@@ -13,6 +13,4 @@
             <p class="text-[8px]! sm:text-sm hidden sm:block md:text-sm! overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{html_entity_decode($desc, ENT_QUOTES)}}</p>
         </div>
     </div>
-</a>
-
-</a>
+</div>

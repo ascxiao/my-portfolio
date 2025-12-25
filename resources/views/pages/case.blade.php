@@ -1,11 +1,15 @@
+@php
+    $tags = ['UI/UX', 'Game', 'Frontend']
+@endphp
+
 <x-layout>
     <!-- Hero Section -->
-    <div class="bg-white">
+    <div class="bg-linear-to-br from-blue-200 to-green-100 rounded-b-3xl">
         <div class="max-w-5xl mx-auto px-6 py-20">
             <div class="flex gap-3 mb-6">
-                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-medium text-gray-700">UX Design</span>
-                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-medium text-gray-700">E-commerce</span>
-                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-medium text-gray-700">2024</span>
+                    @foreach ($tags as $tag)
+                        <x-tags category={{$tag}} fontSize='text-sm font-medium'></x-tags>
+                    @endforeach
             </div>
             <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">
                 E-commerce Redesign: Increasing Conversion by 45%
