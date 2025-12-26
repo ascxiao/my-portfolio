@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,9 +20,7 @@ Route::get('/about_me', function () {
     return view('pages.about_me');
 });
 
-Route::get('/projects', function () {
-    return view('pages.projects');
-});
+Route::get('/projects', [ProjectController::class, 'index']);
 
 Route::get('/certification', function () {
     return view('pages.certification');
