@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->json('tags')->nullable();
             $table->longText('content');
+            $table->integer('read_time')->nullable();
         });
     }
 

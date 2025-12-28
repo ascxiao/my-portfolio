@@ -13,4 +13,10 @@ class CaseStudyController extends Controller
 
     return view('pages.case_study', ['cases'=>$cases]);
     }
+
+    public function show($id){
+    $case = CaseStudy::findOrFail($id);
+
+    return view('pages.case', ["case" => $case]);
+    }
 }

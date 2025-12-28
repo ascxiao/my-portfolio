@@ -33,15 +33,6 @@ Route::get('/case_study', [CaseStudyController::class, 'index']);
 
 Route::get('/artworks', [ArtworkController::class, 'index']);
 
-Route::get('/case/{id}', function($id){
-    return view('pages.case', ["id" => $id]);
-});
+Route::get('/case/{id}', [CaseStudyController::class, 'show']);
 
-Route::get('/devlog', function(){
-    return view('pages.devlog');
-});
-
-Route::get('/show/{id}', function($id){
-
-    return view('show', ["id" => $id]);
-});
+Route::get('/devlog/{id}',[DevlogController::class, 'show']);

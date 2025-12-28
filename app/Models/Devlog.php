@@ -9,10 +9,11 @@ use Carbon\Carbon;
 
 class Devlog extends Model
 {
-    protected $fillable = ['title', 'description','image', 'tags', 'content', 'creation_date'];
+    protected $fillable = ['title', 'description','image', 'tags', 'content', 'creation_date', 'read_time'];
     protected $casts = [
         'tags' => 'array',
-        'creation_date' => 'datetime'
+        'creation_date' => 'datetime',
+        'content' => 'array'
     ];
     /** @use HasFactory<\Database\Factories\DevlogFactory> */
     use HasFactory;

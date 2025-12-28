@@ -18,9 +18,11 @@ return new class extends Migration
             $table->text('description');
             $table->timestamp('creation_date');
             $table->string('image');
+            $table->string('role');
+            $table->string('team');
             $table->json('tags')->nullable();
             $table->string('duration')->nullable();
-            $table->longText('content');
+            $table->json('content');
             $table->json('metrics')->nullable();
         });
     }

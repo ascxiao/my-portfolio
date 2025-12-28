@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class CaseStudy extends Model
 {
-    protected $fillable = ['title', 'description','creation_date','image', 'tags', 'duration', 'content', 'metrics'];
+    protected $fillable = ['title', 'description','creation_date','image', 'tags', 'duration', 'content', 'metrics', 'role', 'team'];
     protected $casts = [
         'tags' => 'array',
         'metrics' => 'array',
         'creation_date' => 'datetime',
+        'content' => 'array'
     ];
     /** @use HasFactory<\Database\Factories\CaseStudyFactory> */
     use HasFactory;

@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 
 class DevlogController extends Controller
 {
-        public function index() {
-        $devlogs = Devlog::orderBy('id', 'desc')->get();
+    public function index() {
+    $devlogs = Devlog::orderBy('id', 'desc')->get();
 
-        return view('pages.devlogs', ['devlogs'=>$devlogs]);
+    return view('pages.devlogs', ['devlogs'=>$devlogs]);
+    }
+
+    public function show($id){
+    $devlog = Devlog::findOrFail($id);
+
+    return view('pages.devlog', ["devlog" => $devlog]);
     }
 }
