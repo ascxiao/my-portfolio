@@ -17,9 +17,9 @@ class CertificationFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->firstName(),
-            'provider' => fake()->firstName(),
-            'description' => fake()->realText(30),
+            'title' => fake()->company(),
+            'provider' => fake()->company(),
+            'description' => fake()->paragraph(2),
             'image' => fake()->image(),
             'acquired_date' => fake()->dateTime(),
             'link' => fake()->url()

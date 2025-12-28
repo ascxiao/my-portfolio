@@ -2,7 +2,7 @@
  'tags' => ['Game'], 'duration' => '10 weeks', 'date' => 'December 25, 2023',
  'metrics' => ['metrics' => [''], 'quantifier' => ['']]])
 
-<a href="/case/{{$id}}" class="group">
+<a href="{{route('cases.show', $id)}}" class="group">
     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
         <div class="relative h-36 overflow-hidden aspect-video">
             <img src={{$img}} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -20,7 +20,7 @@
                 {{$desc}}
             </p>
             <div class="flex items-center gap-4 text-xs text-gray-500">
-                <span>{{$duration}}</span>
+                <span>{{$duration}} weeks</span>
                 <span>•</span>
                 <span>{{$date}}</span>
             </div>

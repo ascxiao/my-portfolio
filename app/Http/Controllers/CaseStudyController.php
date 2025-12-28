@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CaseStudyController extends Controller
 {
     public function index() {
-    $cases = CaseStudy::orderBy('created_at', 'desc')->get();
+    $cases = CaseStudy::orderBy('created_at', 'desc')->paginate(9);
 
     return view('pages.case_study', ['cases'=>$cases]);
     }

@@ -1,6 +1,6 @@
-@props(['title' => "La-um's Conquest", 'id' => '1', 'date' => 'December 5, 2025', 'desc' => 'Struggled with this one but I finally finished the inventory system! Took me a while to understand but it was a fun one to make AAAAAAAAAAAA fgdashjfbadshjf dhfsajfbdhjsaf dfbasjhfhj HFJASBHJFSD bfhjabfhjasd BFDHJSABFHJADF.', 'tags' => ['Game' ,'UI/UX'], 'image'=>''])
+@props(['title' => "La-um's Conquest", 'id' => '1', 'date' => 'December 5, 2025', 'desc', 'tags' => ['Game' ,'UI/UX'], 'image'=>''])
 
-<a href='/devlog/{{$id}}' class="card max-h-36 sm:max-h-36 md:max-h-56 lg:max-h-64 p-2 sm:p-4 transition-transform duration-300 hover:scale-105 block">
+<a href="{{route('devlogs.show', $id)}}" class="card max-h-36 sm:max-h-36 md:max-h-56 lg:max-h-64 p-2 sm:p-4 transition-transform duration-300 hover:scale-105 block">
     <div class="flex items-center justify-center aspect-square max-h-32">
         <img src={{$image}} alt={{$title}} class="w-full h-full object-cover">
     </div>

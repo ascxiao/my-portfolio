@@ -19,8 +19,8 @@ class ProjectFactory extends Factory
         $tagCategories = ['Game','Project Management','UI/UX','Frontend','Backend',"Mobile"];
 
         return [
-            'title' => fake()->firstName(),
-            'description' => fake()->realText(30),
+            'title' => fake()->company(),
+            'description' => fake()->paragraph(2),
             'image' => fake()->image(),
             'tags'=> fake()->randomElements($tagCategories,2),
             'duration' => fake()->numberBetween(0,2),

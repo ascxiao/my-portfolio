@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProjectController extends Controller
 {
     public function index() {
-        $projects = Project::orderBy('created_at', 'desc')->get();
+        $projects = Project::orderBy('created_at', 'desc')->paginate(9);
 
         return view('pages.projects', ['projects'=>$projects]);
     }

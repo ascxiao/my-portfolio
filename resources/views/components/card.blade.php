@@ -1,12 +1,12 @@
-@props(['title' => '', 'desc' => '', 'img' => '/images/sample.png', 'tags' => [], 'duration' => ''])
+@props(['title' => '', 'desc' => '', 'img' => '/images/sample.png', 'tags'=>[], 'duration'=>'', 'route'])
 
-<a href="" class="group">
+<a href={{$route}} class="group">
     <div class="bg-white max-w-64 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
         <div class="relative h-32 overflow-hidden aspect-video items-center justify-center">
             <img src={{$img}} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
         </div>
 
-        <div class="p-6">
+        <div class="p-3">
             <div class="flex flex-wrap gap-2 mb-3">
                     @foreach ($tags as $tag)
                         <x-tags category={{$tag}}></x-tags>
@@ -18,9 +18,11 @@
             <p class="text-gray-600 text-sm mb-4">
                 {{$desc}}
             </p>
-            <div class="flex items-center gap-4 text-xs text-gray-500">
-                <span>{{$duration}}</span>
-            </div>
+            @if ($duration != null)
+                <div class="flex items-center gap-4 text-xs text-gray-500">
+                    <span>{{$duration}} weeks</span>
+                </div>
+            @endif
         </div>
     </div>
 </a>

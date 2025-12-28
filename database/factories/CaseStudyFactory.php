@@ -29,8 +29,8 @@ class CaseStudyFactory extends Factory
         })->all();
 
         return [
-            'title' => fake()->jobTitle(),
-            'description' => fake()->realtext(30),
+            'title' => fake()->company(),
+            'description' => fake()->paragraph(2),
             'creation_date' => fake()->dateTime(),
             'image' => fake()->image(),
             'tags'=> fake()->randomElements($tagCategories, 2),

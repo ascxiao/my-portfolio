@@ -6,7 +6,8 @@
                 :desc="$project['description']"
                 :img="$project['image']"
                 :tags="$project['tags']"
-                :duration="$project['duration']"></x-card>
+                :duration="$project['duration']"
+                route="sample.com"></x-card>
         @endforeach
     </x-segment>
 
@@ -15,7 +16,8 @@
             <x-card
                 :title="$certification['title']"
                 :desc="$certification['provider']"
-                :img="$certification['image']"></x-card>
+                :img="$certification['image']"
+                route="sample.com"></x-card>
         @endforeach
     </x-segment>
 
@@ -26,7 +28,8 @@
                 :desc="$case['description']"
                 :img="$case['image']"
                 :tags="$case['tags']"
-                :duration="$case['duration']"></x-card>
+                :duration="$case['duration']"
+                :route="route('cases.show', $case->id)"></x-card>
         @endforeach
     </x-segment>
 </x-layout>

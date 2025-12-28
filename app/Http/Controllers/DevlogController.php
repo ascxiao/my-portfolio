@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class DevlogController extends Controller
 {
     public function index() {
-    $devlogs = Devlog::orderBy('id', 'desc')->get();
+    $devlogs = Devlog::orderBy('id', 'desc')->paginate(10);
 
     return view('pages.devlogs', ['devlogs'=>$devlogs]);
     }

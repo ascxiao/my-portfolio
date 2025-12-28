@@ -19,8 +19,8 @@ class DevlogFactory extends Factory
         $tagCategories = ['Game','Project Management','UI/UX','Frontend','Backend',"Mobile"];
 
         return [
-            'title' => fake()->firstName(),
-            'description' => fake()->realText(30),
+            'title' => fake()->company(),
+            'description' => fake()->paragraph(2),
             'image' => fake()->image(),
             'creation_date' => fake()->dateTime(),
             'tags'=> fake()->randomElements($tagCategories, 3),

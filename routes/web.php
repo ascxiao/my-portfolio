@@ -23,16 +23,16 @@ Route::get('/about_me', function () {
     return view('pages.about_me');
 });
 
-Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 
-Route::get('/certification', [CertificationController::class, 'index']);
+Route::get('/certification', [CertificationController::class, 'index'])->name('certificaation');
 
-Route::get('/devlogs', [DevlogController::class, 'index']);
+Route::get('/devlogs', [DevlogController::class, 'index'])->name('devlog');
 
-Route::get('/case_study', [CaseStudyController::class, 'index']);
+Route::get('/case_study', [CaseStudyController::class, 'index'])->name('cases');
 
-Route::get('/artworks', [ArtworkController::class, 'index']);
+Route::get('/artworks', [ArtworkController::class, 'index'])->name('artworks');
 
-Route::get('/case/{id}', [CaseStudyController::class, 'show']);
+Route::get('/case/{id}', [CaseStudyController::class, 'show'])->name('cases.show');
 
-Route::get('/devlog/{id}',[DevlogController::class, 'show']);
+Route::get('/devlog/{id}',[DevlogController::class, 'show'])->name('devlogs.show');

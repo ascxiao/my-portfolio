@@ -2,7 +2,7 @@
     <div class="md:p-4 grid justify-center">
         <h2>Certifications</h2>
     </div>
-    <div class="grid grid-rows-1 gap-4" id='certificate'>
+    <div class="grid grid-rows-1 gap-4 mb-8 md:mb-16" id='certificate'>
         @foreach ($certifications as $certification)
             <x-certificate_tile 
                 :certificate="$certification['title']"
@@ -14,6 +14,8 @@
             ></x-certificate_tile>
         @endforeach
     </div>
+
+    {{$certifications->links('pagination.white')}}
 </x-layout>
 
 <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4 modal">

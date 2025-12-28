@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CertificationController extends Controller
 {
         public function index() {
-        $certifications = Certification::orderBy('created_at', 'desc')->get();
+        $certifications = Certification::orderBy('created_at', 'desc')->paginate(10);
 
         return view('pages.certification', ['certifications'=>$certifications]);
     }

@@ -3,7 +3,7 @@
         <h2>Artworks</h2>
     </div>
     
-    <div class="gallery-grid" id="gallery">
+    <div class="gallery-grid mb-8 md:mb-16" id="gallery">
         @foreach ($artworks as $artwork)
             <x-artwork_component 
                 :src="$artwork['source']" 
@@ -13,6 +13,8 @@
             </x-artwork_component>
         @endforeach
     </div>
+
+    {{$artworks->links('pagination.white')}}
 </x-layout>
 
 <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4 modal">

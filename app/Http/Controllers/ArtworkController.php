@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ArtworkController extends Controller
 {
     public function index() {
-    $artworks = Artwork::orderBy('created_at', 'desc')->get();
+    $artworks = Artwork::orderBy('created_at', 'desc')->paginate(10);
 
     return view('pages.artworks', ['artworks'=>$artworks]);
     }
