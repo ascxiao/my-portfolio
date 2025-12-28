@@ -1,4 +1,4 @@
-@props(['title' => '', 'desc' => '', 'img' => '/images/sample.png', 'tags' => ['Game'], 'duration' => 'Ongoing'])
+@props(['title' => '', 'desc' => '', 'img' => '/images/sample.png', 'tags' => [], 'duration' => ''])
 
 <a href="" class="group">
     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">

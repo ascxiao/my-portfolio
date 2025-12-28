@@ -2,18 +2,17 @@
 
 namespace Database\Seeders;
 
+use App\Models\Devlog;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Project;
-use App\Models\User;
 
-class ProjectSeeder extends Seeder
+class DevlogSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Project::factory()->count(20)->create();
+        Devlog::factory()->count(20)->create();
     }
 }

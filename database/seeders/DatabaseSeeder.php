@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CaseStudy;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -24,6 +25,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ProjectSeeder::class,
+            CertificationSeeder::class,
+            DevlogSeeder::class,
+            CaseStudySeeder::class,
+            ArtworkSeeder::class
         ]);
     }
 }

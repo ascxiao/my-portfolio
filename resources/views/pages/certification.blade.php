@@ -3,8 +3,16 @@
         <h2>Certifications</h2>
     </div>
     <div class="grid grid-rows-1 gap-4" id='certificate'>
-        <x-certificate_tile certificate='Google UX Design Certificate' provider='Google Careers' date='December 5, 2025' desc='Testing'></x-certificate_tile>
-        <x-certificate_tile certificate='Google UI Design Certificate' provider='Google' date='December 5, 2025' desc='Testing'></x-certificate_tile>
+        @foreach ($certifications as $certification)
+            <x-certificate_tile 
+                :certificate="$certification['title']"
+                :provider="$certification['provider']"
+                :date="$certification['acquired_date']->format('F j, Y')"
+                :desc="$certification['description']"
+                :image="$certification['image']"
+                :link="$certification['link']"
+            ></x-certificate_tile>
+        @endforeach
     </div>
 </x-layout>
 
@@ -51,21 +59,21 @@
         function openModal() {
             const currentItem = certificates[currentIndex];
             const img = currentItem.querySelector('img');
-            const titleElement = currentItem.querySelector('h2');
-            const dateElement = currentItem.querySelector('p');
-            const linkElement = currentItem.querySelector('a[href]');
+            const titleElement = currentItem.querySelector('[data-title-text]') || currentItem.querySelector('h3, h2');
+            const dateElement = currentItem.querySelector('[data-date]') || currentItem.querySelector('p');
+            const linkElement = currentItem.querySelector('[data-link]') || currentItem.querySelector('a[href]');
             const providerElement = currentItem.querySelector('[data-provider]') || currentItem.querySelector('.provider');
             
-            const title = titleElement ? titleElement.textContent : 'Untitled';
-            const date = dateElement ? dateElement.textContent : 'Unknown Date';
-            const link = linkElement ? linkElement.href : (currentItem?.dataset?.link || '');
-            const provider = providerElement ? providerElement.textContent : (currentItem?.dataset?.provider || '');
+            const title = currentItem.dataset.title || titleElement?.textContent || 'Untitled';
+            const date = currentItem.dataset.date || dateElement?.textContent || 'Unknown Date';
+            const link = currentItem.dataset.link || linkElement?.href || '';
+            const provider = currentItem.dataset.provider || providerElement?.textContent || '';
 
-            modalImage.src = img.src;
-            modalImage.alt = img.alt;
+            modalImage.src = img?.src || '';
+            modalImage.alt = img?.alt || title;
             modalTitle.textContent = title;
             modalDate.textContent = date;
-            modalProvider.textContent = provider || '';
+            modalProvider.textContent = provider;
             if (link) {
                 modalLink.href = link;
                 modalLink.textContent = 'View Certificate';

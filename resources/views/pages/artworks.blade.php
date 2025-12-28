@@ -4,10 +4,14 @@
     </div>
     
     <div class="gallery-grid" id="gallery">
-        <x-artwork_component src='/images/DaveCelo.png' title='Dave Celo Portrait' date='January 15, 2024'></x-artwork_component>
-        <x-artwork_component src='/images/sample.png' title='Sample Artwork' date='February 20, 2024'></x-artwork_component>
-        <x-artwork_component src='/images/yb-1.png' title='YB Artwork 1' date='March 10, 2024'></x-artwork_component>
-        <x-artwork_component src='/images/sample2.png' title='Sample Artwork 2' date='April 5, 2024'></x-artwork_component>
+        @foreach ($artworks as $artwork)
+            <x-artwork_component 
+                :src="$artwork['source']" 
+                :title="$artwork['title']" 
+                :date="$artwork['creation_date']->format('F j, Y')"
+                :tags="$artwork['tags']">
+            </x-artwork_component>
+        @endforeach
     </div>
 </x-layout>
 

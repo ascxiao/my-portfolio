@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Project>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Devlog>
  */
-class ProjectFactory extends Factory
+class DevlogFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -22,9 +22,9 @@ class ProjectFactory extends Factory
             'title' => fake()->firstName(),
             'description' => fake()->realText(30),
             'image' => fake()->image(),
-            'tags'=> fake()->randomElements($tagCategories,2),
-            'duration' => fake()->numberBetween(0,2),
-            'link' => fake()->url()
+            'creation_date' => fake()->dateTime(),
+            'tags'=> fake()->randomElements($tagCategories, 3),
+            'content' => fake()->realText(500)
         ];
     }
 }

@@ -24,7 +24,7 @@ h2 {
     @apply text-xl font-bold my-4;
 }
 h3 {
-    @apply text-lg font-bold my-4;
+    @apply text-lg font-bold;
 }
 ul {
     @apply my-10;

@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\ArtworkController;
+use App\Http\Controllers\CaseStudyController;
+use App\Http\Controllers\CertificationController;
+use App\Http\Controllers\DevlogController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/test', function () {
     $ninjas = [
@@ -22,25 +25,13 @@ Route::get('/about_me', function () {
 
 Route::get('/projects', [ProjectController::class, 'index']);
 
-Route::get('/certification', function () {
-    return view('pages.certification');
-});
+Route::get('/certification', [CertificationController::class, 'index']);
 
-Route::get('/devlogs', function () {
-    return view('pages.devlogs');
-});
+Route::get('/devlogs', [DevlogController::class, 'index']);
 
-Route::get('/case_study', function () {
-    $test = [
-        ['id'=>'1', 'title'=>'Sample Article', 'date'=>'December 1, 2025', 'img'=>'/images/sample.png', 'contents'=>'RAWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR'],
-    ];
+Route::get('/case_study', [CaseStudyController::class, 'index']);
 
-    return view('pages.case_study', ['test' => $test]);
-});
-
-Route::get('/artworks', function () {
-    return view('pages.artworks');
-});
+Route::get('/artworks', [ArtworkController::class, 'index']);
 
 Route::get('/case/{id}', function($id){
     return view('pages.case', ["id" => $id]);
