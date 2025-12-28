@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="$case->title">
     <!-- Hero Section -->
     <div class="bg-linear-to-br from-blue-200 to-green-100 rounded-b-3xl">
         <div class="max-w-5xl mx-auto px-6 py-20">

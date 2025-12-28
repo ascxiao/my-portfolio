@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Devlog {{$devlog->id}}">
         <div class="py-12">
         <div class="flex items-center gap-3 mb-4">
             @foreach ($devlog->tags as $tag)
