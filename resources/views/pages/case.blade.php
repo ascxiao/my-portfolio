@@ -7,10 +7,10 @@
                         <x-tags category={{$tag}} fontSize='text-sm font-medium'></x-tags>
                     @endforeach
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">
+            <h1 class="text-xl md:text-2xl font-bold mb-6 leading-tight text-gray-900">
                 {{$case->title}}
             </h1>
-            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl">
+            <p class="text-md text-gray-600 leading-relaxed max-w-3xl">
                 {{$case->description}}
             </p>
         </div>

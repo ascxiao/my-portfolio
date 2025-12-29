@@ -1,10 +1,10 @@
 <x-layout title="About me!">
     <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 px-4 md:px-8">
         <div class="w-full text-center md:text-left md:w-auto p-6 md:p-8 lg:p-16 max-w-full md:max-w-md lg:max-w-lg">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Hi! I'm Carlos</h1>
-            <p class="mb-4 text-sm sm:text-base text-gray-700 leading-relaxed">I’m a sprouting bud figuring things out—turning ideas into actual, working things (artworks, games, projects, and the occasional “why didn’t I think of that sooner?” moment). I enjoy creating work that not only looks good but can also help or inspire the community around me.</p>
-            <p class="mb-4 text-sm sm:text-base text-gray-700 leading-relaxed">I believe in getting a little better every day, mostly by learning new things and trying them out until they click. My interests orbit around project management, data science, game development, UI/UX design, 2D illustration, and logo creation—basically, if it involves building something meaningful, I’m probably curious about it.</p>
-            <p class="text-sm sm:text-base text-gray-700 leading-relaxed">I’m based in the Philippines, where my creative fuel comes from a mild obsession with Filipino mythology and stories that feel ancient, strange, and powerful.</p>
+            <h1 class="text-xl md:text-5xl lg:text-3xl font-bold mb-4">Hi! I'm Carlos</h1>
+            <p class="mb-4 text-xs text-gray-700 leading-relaxed">I’m a sprouting bud figuring things out—turning ideas into actual, working things (artworks, games, projects, and the occasional “why didn’t I think of that sooner?” moment). I enjoy creating work that not only looks good but can also help or inspire the community around me.</p>
+            <p class="mb-4 text-xs text-gray-700 leading-relaxed">I believe in getting a little better every day, mostly by learning new things and trying them out until they click. My interests orbit around project management, data science, game development, UI/UX design, 2D illustration, and logo creation—basically, if it involves building something meaningful, I’m probably curious about it.</p>
+            <p class="text-xs text-gray-700 leading-relaxed">I’m based in the Philippines, where my creative fuel comes from a mild obsession with Filipino mythology and stories that feel ancient, strange, and powerful.</p>
         </div>
 
         <div class="w-full md:w-auto md:grow max-w-xs sm:max-w-sm md:max-w-md lg:max-h-64 aspect-square">
@@ -14,7 +14,7 @@
 
     <div class="flex flex-col md:flex-row items-center gap-2 md:gap-8 px-4 md:px-8">
         <div class="justify-between w-full text-center md:text-left md:pl-8 lg:pl-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Have an opportunity in mind? Let's talk!</h2> 
+            <h2 class="text-md md:text-xl font-bold mb-4">Have an opportunity in mind? Let's talk!</h2> 
         </div>
 
         <div class="flex gap-4">

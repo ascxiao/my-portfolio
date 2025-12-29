@@ -1,4 +1,4 @@
-@props(['category' => '', 'bg' => 'bg-gray-100', 'colors' => [], 'fontSize' => 'text-[10px]! md:[12px]!'])
+@props(['category' => '', 'bg' => 'bg-gray-100', 'colors' => []])
 
 @php
 	$defaultColors = [
@@ -20,4 +20,4 @@
 	$bgClass = $normalized[strtolower(trim($category))] ?? $bg;
 @endphp
 
-<span class="{{$bgClass}} px-3 py-1 rounded-full {{$fontSize}} text-gray-700">{{$category}}</span>
+<span class="{{$bgClass}} px-3 py-1 rounded-full text-xs text-gray-700">{{$category}}</span>

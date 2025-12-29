@@ -6,7 +6,7 @@
             @endforeach
         </div>
         
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+        <h1 class="text-xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight">
             {{$devlog->title}}
         </h1>
         

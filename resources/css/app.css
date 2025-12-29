@@ -1,37 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
-
-@theme {
-    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-}
-
-body {
-    @apply bg-gray-100 text-gray-700;
-    font-family: "Roboto";
-}
-h1 {
-    @apply text-2xl font-bold;
-}
-h2 {
-    @apply text-xl font-bold my-4;
-}
-h3 {
-    @apply text-lg font-bold;
-}
-ul {
-    @apply my-10;
-}
-p {
-    @apply my-2;
-    font-size: 0.75rem;
+@layer base {
+    body {
+        @apply bg-gray-100 text-gray-700;
+        font-family: "Roboto";
+    }
+    h1 {
+        @apply text-xl font-bold;
+    }
+    h2 {
+        @apply text-xl font-bold my-4;
+    }
+    h3 {
+        @apply text-lg font-bold;
+    }
+    ul {
+        @apply my-10;
+    }
+    p {
+        @apply my-2;
+        font-size: 0.75rem;
+    }
 }
 
 /* header */
