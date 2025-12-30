@@ -12,8 +12,8 @@
             <p class="text-[10px]! md:text-[12px]! lg:[14px]!">{{$date}}</p>
             @foreach ($tags as $tag)
                 <x-tags category={{$tag}}></x-tags>
-            @endforeach<p class="text-[6px]! hidden md:text-xs! overflow-hidden md:[display:-webkit-box] md:[-webkit-line-clamp:2] md:[-webkit-box-orient:vertical]">{{html_entity_decode($desc, ENT_QUOTES)}}</p
-            >
+            @endforeach
+            <p class="text-[6px]! hidden md:text-xs! overflow-hidden md:[display:-webkit-box] md:[-webkit-line-clamp:2] md:[-webkit-box-orient:vertical]">{{html_entity_decode($desc, ENT_QUOTES)}}</p>
         </div>
     </div>
 </a>
