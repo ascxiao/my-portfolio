@@ -54,11 +54,8 @@ class DevlogController extends Controller
             $validated['image'] = $request->file('image')->store('images', 'public');
         }
 
-        // Debug: Log what Quill is sending
-        Log::info('Quill Content (first 500 chars):', ['content' => substr($validated['content'], 0, 2000)]);
-
         $config = [
-            'HTML.Allowed' => 'p[class],br,strong,em,u,s,h1,h2,h3,h4,h5,h6,blockquote,code,pre[class|spellcheck],ol[class],ul[class],li[class],a[href|target|title|class],img[src|alt|width|height|title|class],iframe[src|width|height|allowfullscreen],video[class],source[src|type],div[class|spellcheck],span[class]',
+            'HTML.Allowed' => 'p[class],br,strong,em,u,s,h1,h2,h3,h4,h5,h6,blockquote,code,pre[class],ol[class],ul[class],li[class],a[href|target|title|class],img[src|alt|width|height|title|class],iframe[src|width|height|allowfullscreen],video[class],source[src|type],div[class],span[class]',
             'HTML.SafeIframe' => true,
             'URI.SafeIframeRegexp' => '%^(?:https?:)?//(?:www\.)?(?:youtube(?:-nocookie)?\.com/embed/|vimeo\.com/video/)%',
             'URI.AllowedSchemes' => ['http' => true, 'https' => true, 'data' => true],
@@ -74,9 +71,6 @@ class DevlogController extends Controller
             ],
         ];
         $validated['content'] = app('purifier')->clean($validated['content'], $config);
-
-        // Debug: Log what was stored after purifying
-        Log::info('Purified Content (first 500 chars):', ['content' => substr($validated['content'], 0, 2000)]);
 
         if (!isset($validated['creation_date'])) {
             $validated['creation_date'] = now();
@@ -101,7 +95,7 @@ class DevlogController extends Controller
             'description' => 'string|max:255',
             'image' => 'image|max:2048',
             'tags' => 'nullable|string',
-            'content' => 'string|max:9999',
+            'content' => 'string',
             'creation_date'=> 'nullable|date',
             'read_time'=>'nullable|string'
         ]);
@@ -115,7 +109,7 @@ class DevlogController extends Controller
 
         if (isset($validated['content'])) {
             $config = [
-                'HTML.Allowed' => 'p[class],br,strong,em,u,s,h1,h2,h3,h4,h5,h6,blockquote,code,pre[class|spellcheck],ol[class],ul[class],li[class],a[href|target|title|class],img[src|alt|width|height|title|class],iframe[src|width|height|allowfullscreen],video[class],source[src|type],div[class|spellcheck],span[class]',
+                'HTML.Allowed' => 'p[class],br,strong,em,u,s,h1,h2,h3,h4,h5,h6,blockquote,code,pre[class],ol[class],ul[class],li[class],a[href|target|title|class],img[src|alt|width|height|title|class],iframe[src|width|height|allowfullscreen],video[class],source[src|type],div[class],span[class]',
                 'HTML.SafeIframe' => true,
                 'URI.SafeIframeRegexp' => '%^(?:https?:)?//(?:www\.)?(?:youtube(?:-nocookie)?\.com/embed/|vimeo\.com/video/)%',
                 'URI.AllowedSchemes' => ['http' => true, 'https' => true, 'data' => true],
@@ -135,6 +129,10 @@ class DevlogController extends Controller
 
         if (!isset($validated['creation_date'])) {
             $validated['creation_date'] = now();
+        }
+
+        if ($request->tags) {
+            $validated['tags'] = array_map('trim', explode(',', $request->tags));
         }
 
         $devlog->update($validated);

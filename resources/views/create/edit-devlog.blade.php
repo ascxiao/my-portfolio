@@ -1,19 +1,20 @@
 @extends('dashboard')
 
-@section('title', 'Add Devlog')
+@section('title', 'Edit Devlog')
 
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
 @section('content')
 <div class="flex flex-col md:flex-row justify-around bg-white overflow-hidden shadow-sm sm:rounded-lg py-4 px-8 gap-4">
     <div id='forms' class="p-2 lg:p-6 w-full md:w-1/2 flex-shrink-0">
-        <h2 class="text-2xl font-bold mb-6">Add New Devlog</h2>
+        <h2 class="text-2xl font-bold mb-6">Edit Devlog {{$devlog->id}}</h2>
 
-        <form action="{{ route('devlogs.store') }}" method="POST" enctype="multipart/form-data" id="devlogForm">
+        <form action="{{ route('devlogs.update', $devlog->id) }}" method="POST" enctype="multipart/form-data" id="devlogForm">
             @csrf
+            @method('PUT')
 
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title *</label>
-                <input type="text" name="title" id="title" value="{{ old('title') }}" required
+                <input type="text" name="title" id="title" value="{{$devlog->title}}"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 @error('title')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -22,7 +23,7 @@
 
             <div class="mb-4">
                 <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Upload Cover Photo *</label>
-                <input type="file" name="image" id="image" accept="image/*" required
+                <input type="file" name="image" id="image" accept="image/*"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 @error('image')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -30,14 +31,15 @@
 
                 <!-- Image Preview -->
                 <div class="mt-3" id="image-preview-container" style="display: none;">
-                    <img id="preview-image" src="" alt="Preview" class="max-w-xs rounded-md border border-gray-300">
+                    <img id="preview-image" src='{{asset('storage/'.$devlog->image)}}' alt="Preview" class="max-w-xs rounded-md border border-gray-300">
                 </div>
+                <p class="text-xs text-gray-500 mt-1">Current: {{ basename($devlog->image) }}</p>
             </div>
             
             <div class="mb-4">
                 <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
-                <textarea name="description" id="description" required rows="6"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ old('description') }}</textarea>
+                <textarea name="description" id="description" rows="6"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ old('description', $devlog->description) }}</textarea>
                 @error('description')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -45,7 +47,7 @@
 
             <div class="mb-4">
                 <label for="tags" class="block text-sm font-medium text-gray-700 mb-2">Tags (comma-separated)</label>
-                <input type="text" name="tags" id="tags" value="{{ old('tags') }}" placeholder="Project Management, UI/UX, Game"
+                <input type="text" name="tags" id="tags" value="{{ old('tags', $devlog->tags ? implode(', ', $devlog->tags) : '') }}" placeholder="Project Management, UI/UX, Game"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 <p class="text-xs text-gray-500 mt-1">Separate tags with commas</p>
                 @error('tags')
@@ -55,7 +57,7 @@
 
             <div class="mb-4">
                 <label for="read_time" class="block text-sm font-medium text-gray-700 mb-2">Estimated Read Time (in minutes)*</label>
-                <input type="text" name="read_time" id="read_time" value="{{ old('read_time') }}" required pattern="[0-9]+" inputmode="numeric"
+                <input type="text" name="read_time" id="read_time" value="{{$devlog->read_time}}" pattern="[0-9]+" inputmode="numeric"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                     oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                 @error('read_time')
@@ -65,7 +67,7 @@
 
             <div class="flex items-center gap-4">
                 <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md">
-                    Create Devlog
+                    Update Devlog
                 </button>
                 <a href="{{ route('devlogs.index') }}" class="text-gray-600 hover:text-gray-900">Cancel</a>
             </div>
@@ -79,7 +81,7 @@
             <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Content *</label>
             <div id="editor-wrapper" class="bg-white border border-gray-300 rounded-md" style="max-width: 100%; height: 600px; display: flex; flex-direction: column;">
                 <div id="editor" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;" class="px-6">
-                    {!! old('content') !!}
+                    {!!$devlog->content!!}
                 </div>
             </div>
             <style>
@@ -143,6 +145,14 @@
         }
     });
 
+    // Show existing image on load
+    window.addEventListener('load', function() {
+        const existingImg = document.getElementById('preview-image');
+        if (existingImg && existingImg.getAttribute('src')) {
+            document.getElementById('image-preview-container').style.display = 'block';
+        }
+    });
+
     document.getElementById('devlogForm').addEventListener('submit', function(e) {
         const content = quill.root.innerHTML;
         
@@ -159,6 +169,8 @@
         document.getElementById('content').value = content;
     });
 
+    const draftKey = 'devlog_draft_edit_{{$devlog->id}}';
+
     // Auto-save to localStorage every 30 seconds
     let autoSaveInterval = setInterval(function() {
         const content = quill.root.innerHTML;
@@ -166,7 +178,7 @@
         const description = document.getElementById('description').value;
         
         if (content || title || description) {
-            localStorage.setItem('devlog_draft', JSON.stringify({
+            localStorage.setItem(draftKey, JSON.stringify({
                 title: title,
                 description: description,
                 content: content,
@@ -176,27 +188,27 @@
             
             console.log('Draft auto-saved at ' + new Date().toLocaleTimeString());
         }
-    }, 30000); // Every 30 seconds
+    }, 120000);
 
-    // Load draft on page load
+    // Load draft on page load (only for this devlog id)
     window.addEventListener('load', function() {
-        const draft = localStorage.getItem('devlog_draft');
+        // Clean old generic key to avoid unexpected prompts
+        localStorage.removeItem('devlog_draft');
+
+        const draft = localStorage.getItem(draftKey);
         if (draft) {
             const data = JSON.parse(draft);
-            const loadDraft = confirm('A draft was found from ' + new Date(data.timestamp).toLocaleString() + '. Would you like to restore it?');
-            
-            if (loadDraft) {
-                document.getElementById('title').value = data.title;
-                document.getElementById('description').value = data.description;
-                document.getElementById('tags').value = data.tags;
-                quill.root.innerHTML = data.content;
-            }
+            document.getElementById('title').value = data.title;
+            document.getElementById('description').value = data.description;
+            document.getElementById('tags').value = data.tags;
+            quill.root.innerHTML = data.content;
         }
     });
 
     // Clear draft after successful submission
     document.getElementById('devlogForm').addEventListener('submit', function() {
         if (this.checkValidity()) {
+            localStorage.removeItem(draftKey);
             localStorage.removeItem('devlog_draft');
         }
     });
