@@ -1,7 +1,12 @@
 <x-layout title="Devlog {{$devlog->id}}">
-        <div class="py-12">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+
+    <div class="py-12">
         <div class="flex items-center gap-3 mb-4">
-            @foreach ($devlog->tags as $tag)
+            @php
+                $tagsArray = is_string($devlog->tags) ? array_filter(array_map('trim', explode(',', $devlog->tags))) : $devlog->tags;
+            @endphp
+            @foreach ($tagsArray as $tag)
                 <x-tags category={{$tag}} fontSize='text-sm font-medium'></x-tags>
             @endforeach
         </div>
@@ -27,11 +32,14 @@
 
         <!-- Featured Image -->
         <div class="rounded-xl overflow-hidden shadow-lg mb-8">
-            <img src={{$devlog->image}} 
+            <img src={{asset('storage/'.$devlog->image)}} 
                     alt={{$devlog->title}} 
                     class="w-full h-auto">
         </div>
 
-        <x-article_content :contents="$devlog->content"></x-article_content>
+        <div class="bg-white shadow-sm rounded-lg">
+            {!! $devlog->content !!}
+        </div>
+
     </div>
 </x-layout>

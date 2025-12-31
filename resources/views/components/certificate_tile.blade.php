@@ -8,7 +8,7 @@
     data-link="{{$link}}"
 >
     <div class="aspect-square sm:aspect-square md:aspect-video h-auto">
-        <img src="{{$image}}" alt="{{$certificate}}" class="w-full h-full object-cover">
+        <img src={{asset('storage/'.$image)}} alt="{{$certificate}}" class="w-full h-full object-cover">
     </div>
 
     <div class="mx-2 sm:mx-8 md:mx-16">

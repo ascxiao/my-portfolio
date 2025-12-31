@@ -5,10 +5,12 @@
         href="{{ route('projects.edit', $content->id) }}"
     @elseif ($category === 'Certificates')
         href="{{ route('certificates.edit', $content->id) }}"
+    @elseif ($category === 'Devlogs')
+        href="{{ route('devlogs.edit', $content->id) }}"
     @else
         href="#"
     @endif
->
+    title='Edit'>
     <div  class="card max-h-36 sm:max-h-36 md:max-h-56 lg:max-h-64 p-2 sm:p-4 transition-transform duration-300 hover:scale-105 block items-center justify-between">
         <div class="flex flex-row">
             <div class="flex items-center justify-center aspect-square max-h-32">
@@ -18,10 +20,15 @@
             <div class="px-4 md:px-16 lg:pr-16 lg:pl-8">
                 <div class="w-full wrap-break-words whitespace-normal text-left">
                     <h3 class="p-2 text-[14px]! md:text-lg! font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{{html_entity_decode($content->title, ENT_QUOTES)}}</h3>
-                    @if($content->tags && count($content->tags) > 0)
-                        @foreach ($content->tags as $tag)
-                            <x-tags category={{$tag}}></x-tags>
-                        @endforeach
+                    @if($content->tags)
+                        @php
+                            $tagsArray = is_string($content->tags) ? array_filter(array_map('trim', explode(',', $content->tags))) : $content->tags;
+                        @endphp
+                        @if(count($tagsArray) > 0)
+                            @foreach ($tagsArray as $tag)
+                                <x-tags category={{$tag}}></x-tags>
+                            @endforeach
+                        @endif
                     @endif
                     @if($content->provider)
                         <span class="p-2 text-xs">Provided by {{$content->provider}}</span>
@@ -37,6 +44,8 @@
                 action="{{route('projects.destroy', $content->id)}}"
             @elseif ($category == 'Certificates')
                 action="{{route('certificates.destroy', $content->id)}}"
+            @elseif ($category == 'Devlogs')
+                action="{{route('devlogs.destroy', $content->id)}}"
             @endif 
             
             method="POST" class="inline p-4">

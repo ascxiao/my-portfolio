@@ -3,7 +3,7 @@
 <a href={{$route}} class="group">
     <div class="bg-white max-w-64 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
         <div class="relative h-32 overflow-hidden aspect-video items-center justify-center">
-            <img src={{$img}} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+            <img src={{asset('storage/'.$img)}} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
         </div>
 
         <div class="p-3">

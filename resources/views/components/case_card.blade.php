@@ -5,7 +5,7 @@
 <a href="{{route('cases.show', $id)}}" class="group">
     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
         <div class="relative h-36 overflow-hidden aspect-video">
-            <img src={{$img}} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+            <img src={{asset('storage/'.$img)}} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
         </div>
         <div class="p-6">
             <div class="flex gap-2 mb-3">

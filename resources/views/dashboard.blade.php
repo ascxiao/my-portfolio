@@ -19,7 +19,7 @@
                         <a href="{{ route('certificates.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('certifications.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Certifications
                         </a>
-                        <a href="{{ route('devlog') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('devlogs.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
+                        <a href="{{ route('devlogs.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('devlogs.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Devlogs
                         </a>
                         <a href="{{ route('cases') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('case-studies.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">

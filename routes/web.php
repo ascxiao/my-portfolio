@@ -39,6 +39,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/admin/devlogs/create', [DevlogController::class, 'create'])->name('devlogs.create');
+Route::post('/admin/devlogs', [DevlogController::class, 'store'])->name('devlogs.store');
+Route::get('/admin/devlogs/{devlog}/edit', [DevlogController::class, 'edit'])->name('devlogs.edit');
+Route::put('/admin/devlogs/{devlog}', [DevlogController::class, 'update'])->name('devlogs.update');
+Route::delete('/admin/devlogs/del/{devlog}', [DevlogController::class, 'destroy'])->name('devlogs.destroy');
+Route::get('/admin/devlogs', [DevlogController::class, 'admin_index'])->name('devlogs.index');
+
 Route::get('/admin/certificates/create', [CertificationController::class, 'create'])->name('certificates.create');
 Route::post('/admin/certificates', [CertificationController::class, 'store'])->name('certificates.store');
 Route::get('/admin/certificates/{certificate}/edit', [CertificationController::class, 'edit'])->name('certificates.edit');

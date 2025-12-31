@@ -108,20 +108,165 @@ textarea {
     grid-row: span 1;
 }
 
-.markdown-content h2 {
-    @apply text-3xl font-bold text-gray-900 mb-6;
+.devlog-content {
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
 }
-.markdown-content h3 {
-    @apply text-xl font-bold text-gray-900 mb-2;
+
+/* Quill editor styles for rendered content */
+.ql-editor {
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: "Roboto", sans-serif;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
-.markdown-content p {
-    @apply text-gray-700 leading-relaxed mb-4;
+
+.ql-editor img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
-.markdown-content ul {
-    @apply space-y-2 text-gray-700;
+
+.ql-editor pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
-.markdown-content li {
-    @apply flex items-start;
+
+/* Headers */
+.ql-editor h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 1em 0 0.5em;
+}
+.ql-editor h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1em 0 0.5em;
+}
+.ql-editor h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 1em 0 0.5em;
+}
+.ql-editor h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 1em 0 0.5em;
+}
+
+/* Paragraphs */
+.ql-editor p {
+    margin: 1em 0;
+}
+
+/* Lists */
+.ql-editor ul,
+.ql-editor ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+.ql-editor li {
+    margin: 0.5em 0;
+}
+
+/* Code blocks */
+.ql-code-block-container {
+    background: #1f2937;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1em 0;
+    overflow-x: auto;
+}
+
+.ql-code-block {
+    font-family: "Courier New", monospace;
+    white-space: pre;
+    color: #f3f4f6;
+}
+
+/* Blockquotes */
+.ql-editor blockquote {
+    border-left: 4px solid #e5e7eb;
+    padding-left: 1em;
+    margin: 1em 0;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* Images */
+.devlog-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5em 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Blockquotes */
+.devlog-content blockquote {
+    border-left: 4px solid #e5e7eb;
+    padding-left: 1em;
+    margin: 1em 0;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* Code blocks */
+.devlog-content pre {
+    background: #1f2937;
+    color: #f3f4f6;
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+.devlog-content code {
+    background: #f3f4f6;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+.devlog-content pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Links */
+.devlog-content a {
+    color: #4f46e5;
+    text-decoration: underline;
+}
+
+.devlog-content a:hover {
+    color: #4338ca;
+}
+
+/* Video embeds */
+.devlog-content iframe {
+    max-width: 100%;
+    margin: 1.5em 0;
+    border-radius: 8px;
+}
+
+/* Text alignment classes from Quill */
+.devlog-content .ql-align-center {
+    text-align: center;
+}
+.devlog-content .ql-align-right {
+    text-align: right;
+}
+.devlog-content .ql-align-justify {
+    text-align: justify;
 }
 
 /* Modal animations */
