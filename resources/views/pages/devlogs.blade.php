@@ -2,9 +2,18 @@
     <div class="md:p-4 grid justify-center">
         <h2>Devlogs</h2>
     </div>
-    <div class="grid grid-rows-1 gap-4">
-        <x-devlog_tile></x-devlog_tile>
-        <x-devlog_tile></x-devlog_tile>
-        <x-devlog_tile></x-devlog_tile>
+    <div class="grid grid-rows-1 gap-4 mb-8 md:mb-16">
+        @foreach ($devlogs as $devlog)
+            <x-devlog_tile
+                :title="$devlog['title']"
+                :id="$devlog['id']"
+                :date="$devlog['creation_date']->format('F j, Y')"
+                :desc="$devlog['description']"
+                :tags="$devlog['tags']"
+                :image="$devlog['image']">
+            </x-devlog_tile>
+        @endforeach
     </div>
+
+    {{$devlogs->links('pagination.white')}}
 </x-layout>

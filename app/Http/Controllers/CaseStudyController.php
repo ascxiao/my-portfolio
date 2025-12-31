@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Models\CaseStudy;
+use Illuminate\Http\Request;
+
+class CaseStudyController extends Controller
+{
+    public function index() {
+    $cases = CaseStudy::orderBy('created_at', 'desc')->paginate(9);
+
+    return view('pages.case_study', ['cases'=>$cases]);
+    }
+
+    public function show($id){
+    $case = CaseStudy::findOrFail($id);
+
+    return view('pages.case', ["case" => $case]);
+    }
+}
