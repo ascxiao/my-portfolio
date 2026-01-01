@@ -8,7 +8,7 @@
         </div>
 
         <div class="w-full md:w-auto md:grow max-w-xs sm:max-w-sm md:max-w-md lg:max-h-64 aspect-square">
-            <img src="/images/yb-1.png" alt="" class="w-full h-full object-cover rounded-2xl">
+            <img src={{asset('storage/images/yb-1.png')}} alt="" class="w-full h-full object-cover rounded-2xl">
         </div>
     </div>
 

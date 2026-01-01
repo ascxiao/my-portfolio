@@ -39,6 +39,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/admin/cases/create', [CaseStudyController::class, 'create'])->name('cases.create');
+Route::post('/admin/cases', [CaseStudyController::class, 'store'])->name('cases.store');
+Route::get('/admin/cases/{case}/edit', [CaseStudyController::class, 'edit'])->name('cases.edit');
+Route::put('/admin/cases/{case}', [CaseStudyController::class, 'update'])->name('cases.update');
+Route::delete('/admin/cases/del/{case}', [CaseStudyController::class, 'destroy'])->name('cases.destroy');
+Route::get('/admin/cases', [CaseStudyController::class, 'admin_index'])->name('cases.index');
+
 Route::get('/admin/devlogs/create', [DevlogController::class, 'create'])->name('devlogs.create');
 Route::post('/admin/devlogs', [DevlogController::class, 'store'])->name('devlogs.store');
 Route::get('/admin/devlogs/{devlog}/edit', [DevlogController::class, 'edit'])->name('devlogs.edit');
