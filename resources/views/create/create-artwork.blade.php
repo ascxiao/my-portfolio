@@ -1,17 +1,17 @@
 @extends('dashboard')
 
-@section('title', 'Create Project')
+@section('title', 'Add Artwork')
 
 @section('content')
 <div class="flex flex-col md:flex-row justify-around bg-white overflow-hidden shadow-sm sm:rounded-lg py-4 px-8">
-    <div class="flex items-center w-128 h-96 lg:h-128 aspect-video md:p-16">
+    <div class="flex items-center w-128 h-96 lg:h-128 md:p-16">
         <img id="preview-image" src="/images/placeholder.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
     </div>
 
     <div class="p-6">
-        <h2 class="text-2xl font-bold mb-6">Add New Project</h2>
+        <h2 class="text-2xl font-bold mb-6">Add New Artwork</h2>
 
-        <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('artworks.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-4">
@@ -21,9 +21,9 @@
             </div>
 
             <div class="mb-4">
-                <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
-                <textarea name="description" id="description" required rows="6"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">{{ old('description') }}</textarea>
+                <label for="creation_date" class="block text-sm font-medium text-gray-700 mb-2">Creation Date *</label>
+                <input type="date" name="creation_date" id="creation_date" value="{{ old('creation_date', now()->format('Y-m-d')) }}" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
             <div class="mb-4">
@@ -34,36 +34,24 @@
             </div>
 
             <div class="mb-4">
-                <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Change Image</label>
-                <input type="file" name="image" id="image" accept="image/*"
+                <label for="source" class="block text-sm font-medium text-gray-700 mb-2">Upload Artwork</label>
+                <input type="file" name="source" id="source" accept="image/*"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
-            <div class="mb-4">
-                <label for="duration" class="block text-sm font-medium text-gray-700 mb-2">Duration (in weeks) *</label>
-                <input type="text" name="duration" id="duration" value="{{ old('duration') }}" required pattern="[0-9]+" inputmode="numeric"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-            </div>
-
-            <div class="mb-4">
-                <label for="link" class="block text-sm font-medium text-gray-700 mb-2">External Link *</label>
-                <input type="url" name="link" id="link" value="{{ old('link') }}" placeholder="https://example.com" required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
-            </div>
 
             <div class="flex items-center gap-4">
                 <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
-                    Create Project
+                    Add Artwork
                 </button>
-                <a href="{{ route('projects.index') }}" class="text-gray-600 hover:text-gray-900">Cancel</a>
+                <a href="{{ route('artworks.index') }}" class="text-gray-600 hover:text-gray-900">Cancel</a>
             </div>
         </form>
     </div>
 </div>
 
 <script>
-document.getElementById('image').addEventListener('change', function(e) {
+document.getElementById('source').addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (file) {
         const reader = new FileReader();

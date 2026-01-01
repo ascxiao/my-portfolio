@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->text('description');
-            $table->timestamp('creation_date');
+            $table->timestamp('date');
             $table->string('image');
             $table->string('role');
             $table->string('team');

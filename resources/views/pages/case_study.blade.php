@@ -11,7 +11,7 @@
                 :img="$case['image']"
                 :tags="$case['tags']"
                 :duration="$case['duration']"
-                :date="$case['creation_date']->format('F j, Y')"
+                :date="$case['date'] ? $case['date']->format('F j, Y') : 'N/A'"
                 :metrics="$case['metrics']"
                 ></x-case_card>
         @endforeach

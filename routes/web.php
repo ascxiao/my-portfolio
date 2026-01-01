@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtworkController;
 use App\Http\Controllers\CaseStudyController;
 use App\Http\Controllers\CertificationController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DevlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
@@ -29,15 +30,27 @@ Route::get('/case/{id}', [CaseStudyController::class, 'show'])->name('cases.show
 
 Route::get('/devlog/{id}',[DevlogController::class, 'show'])->name('devlogs.show');
 
-Route::get('/admin/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/admin/artworks/create', [ArtworkController::class, 'create'])->name('artworks.create');
+Route::post('/admin/artworks', [ArtworkController::class, 'store'])->name('artworks.store');
+Route::get('/admin/artworks/{artwork}/edit', [ArtworkController::class, 'edit'])->name('artworks.edit');
+Route::put('/admin/artworks/{artwork}', [ArtworkController::class, 'update'])->name('artworks.update');
+Route::delete('/admin/artworks/del/{artwork}', [ArtworkController::class, 'destroy'])->name('artworks.destroy');
+Route::get('/admin/artworks', [ArtworkController::class, 'admin_index'])->name('artworks.index');
+
+Route::get('/admin/cases/create', [CaseStudyController::class, 'create'])->name('cases.create');
+Route::post('/admin/cases', [CaseStudyController::class, 'store'])->name('cases.store');
+Route::get('/admin/cases/{case}/edit', [CaseStudyController::class, 'edit'])->name('cases.edit');
+Route::put('/admin/cases/{case}', [CaseStudyController::class, 'update'])->name('cases.update');
+Route::delete('/admin/cases/del/{case}', [CaseStudyController::class, 'destroy'])->name('cases.destroy');
+Route::get('/admin/cases', [CaseStudyController::class, 'admin_index'])->name('cases.index');
 
 Route::get('/admin/devlogs/create', [DevlogController::class, 'create'])->name('devlogs.create');
 Route::post('/admin/devlogs', [DevlogController::class, 'store'])->name('devlogs.store');

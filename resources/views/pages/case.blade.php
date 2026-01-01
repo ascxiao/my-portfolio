@@ -1,6 +1,6 @@
 <x-layout :title="$case->title">
     <!-- Hero Section -->
-    <div class="bg-linear-to-br from-blue-200 to-green-100 rounded-b-3xl">
+    <div class="bg-gradient-to-br from-blue-200 to-green-100 rounded-b-3xl">
         <div class="max-w-5xl mx-auto px-6 py-20">
             <div class="flex gap-3 mb-6">
                     @foreach ($case->tags as $tag)
@@ -25,7 +25,7 @@
             </div>
             <div>
                 <div class="text-sm text-gray-500 mb-2">Duration</div>
-                <div class="font-semibold text-gray-900">{{$case->duration}}</div>
+                <div class="font-semibold text-gray-900">{{$case->duration}} weeks</div>
             </div>
             <div>
                 <div class="text-sm text-gray-500 mb-2">Team</div>
@@ -33,7 +33,7 @@
             </div>
             <div>
                 <div class="text-sm text-gray-500 mb-2">Year</div>
-                <div class="font-semibold text-gray-900">{{$case->creation_date->format('Y')}}</div>
+                <div class="font-semibold text-gray-900">{{$case->date->format('Y')}}</div>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
     <!-- Main Content -->
     <div class="max-w-5xl mx-auto px-6 py-16">
         <!-- Key Metrics -->
-        <div class="bg-linear-to-br from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12 mb-16">
+        <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12 mb-16">
             <h2 class="text-2xl font-bold text-gray-900 mb-8">Key Results</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 @php
@@ -70,13 +70,14 @@
 
         <!-- Hero Image -->
         <div class="mb-16">
-            <img src={{$case->image}}
+            <img src={{asset('storage/'.$case->image)}}
                  alt={{$case->title}} 
                  class="w-full rounded-2xl shadow-lg">
         </div>
 
-        <!-- Article Content -->
-        <x-article_content :contents="$case->content"></x-article_content>
+        <div class="bg-white shadow-sm rounded-lg">
+            {!! $case->content !!}
+        </div> 
     </div>
 
     <!-- Back to Top -->

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Kaluroos Linnaeus Portfolio 🌱') }}
         </h2>
     </x-slot>
 
@@ -13,25 +13,25 @@
                         <a href="{{ route('dashboard') }}" class="text-xl font-bold">Admin Panel</a>
                     </div>
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                        <a href="{{ route('projects.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('projects.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
+                        <a href="{{ route('projects.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('projects.*') ? 'border-b-2 border-green-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Projects
                         </a>
-                        <a href="{{ route('certificates.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('certifications.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
+                        <a href="{{ route('certificates.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('certificates.*') ? 'border-b-2 border-green-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Certifications
                         </a>
-                        <a href="{{ route('devlogs.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('devlogs.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
+                        <a href="{{ route('devlogs.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('devlogs.*') ? 'border-b-2 border-green-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Devlogs
                         </a>
-                        <a href="{{ route('cases') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('case-studies.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
+                        <a href="{{ route('cases.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('cases.*') ? 'border-b-2 border-green-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Case Studies
                         </a>
-                        <a href="{{ route('artworks') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('artworks.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
+                        <a href="{{ route('artworks.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('artworks.*') ? 'border-b-2 border-green-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Artworks
                         </a>
                     </div>
                 </div>
                 <div class="flex items-center">
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="text-sm text-gray-700 hover:text-gray-900">
                             Logout
@@ -72,4 +72,27 @@
             @yield('content')
         </div>
     </div>
+
+    <script>
+        (function() {
+            const logoutForm = document.getElementById('logout-form');
+            if (!logoutForm) return;
+
+            const INACTIVITY_LIMIT = 180000;
+            let inactivityTimer = startTimer();
+
+            ['mousemove', 'keydown', 'click', 'touchstart', 'scroll'].forEach((evt) => {
+                window.addEventListener(evt, resetTimer, { passive: true });
+            });
+
+            function startTimer() {
+                return setTimeout(() => logoutForm.submit(), INACTIVITY_LIMIT);
+            }
+
+            function resetTimer() {
+                clearTimeout(inactivityTimer);
+                inactivityTimer = startTimer();
+            }
+        })();
+    </script>
 </x-app-layout>

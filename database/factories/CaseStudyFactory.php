@@ -84,7 +84,7 @@ class CaseStudyFactory extends Factory
                             [
                                 'title' => 'Testing & Iteration',
                                 'description' => 'Conducted 3 rounds of usability testing with 15 participants each.',
-                                'color' => 'indigo'
+                                'color' => 'green'
                             ]
                         ]
                     ],

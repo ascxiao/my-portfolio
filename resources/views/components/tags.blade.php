@@ -3,7 +3,7 @@
 @php
 	$defaultColors = [
 		'Game' => 'bg-rose-100',
-		'Project Management' => 'bg-indigo-100',
+		'Project Management' => 'bg-green-100',
 		'UI/UX' => 'bg-yellow-100',
 		'Frontend' => 'bg-sky-100',
 		'Backend' => 'bg-purple-100',
