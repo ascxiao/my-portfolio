@@ -83,16 +83,16 @@ class CaseStudyController extends Controller
         CaseStudy::create($validated);
 
         return redirect()->route('cases.index')
-            ->with('success', 'Devlog added successfully!');
+            ->with('success', 'Case Study added successfully!');
     }
 
     public function edit($id)
     {
-        $devlog = CaseStudy::findOrFail($id);
-        return view('create.edit-case', compact('devlog'));
+        $case = CaseStudy::findOrFail($id);
+        return view('create.edit-case', compact('case'));
     }
     
-    public function update(Request $request, CaseStudy $devlog)
+    public function update(Request $request, CaseStudy $case)
     {
         $validated = $request->validate([
             'title' => 'string|max:255',
@@ -110,8 +110,8 @@ class CaseStudyController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            if ($devlog->image) {
-                Storage::disk('public')->delete($devlog->image);
+            if ($case->image) {
+                Storage::disk('public')->delete($case->image);
             }
             $validated['image'] = $request->file('image')->store('images', 'public');
         }
@@ -140,24 +140,24 @@ class CaseStudyController extends Controller
             $validated['tags'] = array_map('trim', explode(',', $request->tags));
         }
 
-        $devlog->update($validated);
+        $case->update($validated);
 
         return redirect()->route('cases.index')
-            ->with('success', 'Devlog updated successfully!');
+            ->with('success', 'Case Study updated successfully!');
     }
 
     public function destroy($id)
     {
-        $devlog = CaseStudy::findOrFail($id);
+        $case = CaseStudy::findOrFail($id);
         
-        if ($devlog->image) {
-            Storage::disk('public')->delete($devlog->image);
+        if ($case->image) {
+            Storage::disk('public')->delete($case->image);
         }
 
-        $devlog->delete();
+        $case->delete();
 
         return redirect()->route('cases.index')
-            ->with('success', 'Devlog deleted successfully!');
+            ->with('success', 'Case Study deleted successfully!');
     }
 
 }

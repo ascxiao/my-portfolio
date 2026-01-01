@@ -7,6 +7,8 @@
         href="{{ route('certificates.edit', $content->id) }}"
     @elseif ($category === 'Devlogs')
         href="{{ route('devlogs.edit', $content->id) }}"
+    @elseif ($category === 'Cases')
+        href="{{ route('cases.edit', $content->id) }}"
     @else
         href="#"
     @endif
@@ -46,6 +48,8 @@
                 action="{{route('certificates.destroy', $content->id)}}"
             @elseif ($category == 'Devlogs')
                 action="{{route('devlogs.destroy', $content->id)}}"
+            @elseif ($category == 'Cases')
+                action="{{route('cases.destroy', $content->id)}}"
             @endif 
             
             method="POST" class="inline p-4">
