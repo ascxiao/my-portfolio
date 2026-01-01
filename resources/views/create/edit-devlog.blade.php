@@ -13,7 +13,7 @@
             @method('PUT')
 
             <div class="mb-4">
-                <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title *</label>
+                <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title</label>
                 <input type="text" name="title" id="title" value="{{$devlog->title}}"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 @error('title')
@@ -22,7 +22,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Upload Cover Photo *</label>
+                <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Upload Cover Photo</label>
                 <input type="file" name="image" id="image" accept="image/*"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 @error('image')
@@ -37,7 +37,7 @@
             </div>
             
             <div class="mb-4">
-                <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
+                <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
                 <textarea name="description" id="description" rows="6"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ old('description', $devlog->description) }}</textarea>
                 @error('description')
@@ -78,7 +78,7 @@
 
     <div id='editor-container' class="p-6 w-full md:w-1/2 flex-shrink-0">
         <div class="mb-6 w-full">
-            <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Content *</label>
+            <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Content</label>
             <div id="editor-wrapper" class="bg-white border border-gray-300 rounded-md" style="max-width: 100%; height: 600px; display: flex; flex-direction: column;">
                 <div id="editor" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;" class="px-6">
                     {!!$devlog->content!!}
@@ -99,7 +99,7 @@
                     max-width: 100% !important;
                     height: auto !important;
                 }
-                #editor .ql-editor * {
+                #editor .ql-editor {
                     max-width: 100%;
                 }
             </style>

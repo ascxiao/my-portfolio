@@ -7,7 +7,7 @@
         </svg>
     </a>
 
-    <div class="grid grid-rows gap-4 mb-8 lg:px-32 md:mb-16" id='certificate'>
+    <div class="grid grid-rows gap-4 mb-8 lg:px-32 md:mb-16" id='devlogs'>
         @foreach ($devlogs as $devlog)
             <x-tile
                 :content="$devlog"

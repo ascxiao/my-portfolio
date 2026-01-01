@@ -25,7 +25,7 @@
                         <a href="{{ route('cases.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('case-studies.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Case Studies
                         </a>
-                        <a href="{{ route('artworks') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('artworks.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
+                        <a href="{{ route('artworks.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('artworks.*') ? 'border-b-2 border-indigo-500 text-gray-900' : 'text-gray-500 hover:text-gray-700' }}">
                             Artworks
                         </a>
                     </div>

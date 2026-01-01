@@ -9,6 +9,8 @@
         href="{{ route('devlogs.edit', $content->id) }}"
     @elseif ($category === 'Cases')
         href="{{ route('cases.edit', $content->id) }}"
+    @elseif ($category === 'Artworks')
+        href="{{ route('artworks.edit', $content->id) }}"
     @else
         href="#"
     @endif
@@ -16,7 +18,7 @@
     <div  class="card max-h-36 sm:max-h-36 md:max-h-56 lg:max-h-64 p-2 sm:p-4 transition-transform duration-300 hover:scale-105 block items-center justify-between">
         <div class="flex flex-row">
             <div class="flex items-center justify-center aspect-square max-h-32">
-                <img src={{asset('storage/'.$content->image)}} alt={{$content->title}} class="w-full h-full object-cover">
+                <img src={{asset('storage/'.($content->source ?? $content->image))}} alt={{$content->title}} class="w-full h-full object-cover">
             </div>
         
             <div class="px-4 md:px-16 lg:pr-16 lg:pl-8">
@@ -50,6 +52,8 @@
                 action="{{route('devlogs.destroy', $content->id)}}"
             @elseif ($category == 'Cases')
                 action="{{route('cases.destroy', $content->id)}}"
+            @elseif ($category == 'Artworks')
+                action="{{route('artworks.destroy', $content->id)}}"
             @endif 
             
             method="POST" class="inline p-4">

@@ -39,6 +39,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/admin/artworks/create', [ArtworkController::class, 'create'])->name('artworks.create');
+Route::post('/admin/artworks', [ArtworkController::class, 'store'])->name('artworks.store');
+Route::get('/admin/artworks/{artwork}/edit', [ArtworkController::class, 'edit'])->name('artworks.edit');
+Route::put('/admin/artworks/{artwork}', [ArtworkController::class, 'update'])->name('artworks.update');
+Route::delete('/admin/artworks/del/{artwork}', [ArtworkController::class, 'destroy'])->name('artworks.destroy');
+Route::get('/admin/artworks', [ArtworkController::class, 'admin_index'])->name('artworks.index');
+
 Route::get('/admin/cases/create', [CaseStudyController::class, 'create'])->name('cases.create');
 Route::post('/admin/cases', [CaseStudyController::class, 'store'])->name('cases.store');
 Route::get('/admin/cases/{case}/edit', [CaseStudyController::class, 'edit'])->name('cases.edit');
