@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtworkController;
 use App\Http\Controllers\CaseStudyController;
 use App\Http\Controllers\CertificationController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DevlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
@@ -29,9 +30,7 @@ Route::get('/case/{id}', [CaseStudyController::class, 'show'])->name('cases.show
 
 Route::get('/devlog/{id}',[DevlogController::class, 'show'])->name('devlogs.show');
 
-Route::get('/admin/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

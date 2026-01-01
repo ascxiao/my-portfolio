@@ -13,9 +13,7 @@
     <header class="relative">
         <nav class="flex items-center justify-between h-16 md:h-12">
             <a href="{{ url('/') }}" class="md:px-8" aria-label="Home">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                </svg>
+                <x-application-logo class="w-8 h-8" />
             </a>
             
             <div class="hidden md:flex gap-6 font-bold text-sm lg:text-base">
@@ -39,12 +37,12 @@
 
         <div id="mobileDrawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden z-50">
             <div class="flex flex-col p-6 gap-4 mt-16 font-bold">
-                <a href="/about_me" class="hover:text-gray-600 text-base py-2 border-b">About me</a>
-                <a href="/projects" class="hover:text-gray-600 text-base py-2 border-b">Projects</a>
-                <a href="/certification" class="hover:text-gray-600 text-base py-2 border-b">Certifications</a>
-                <a href="/devlogs" class="hover:text-gray-600 text-base py-2 border-b">Devlogs</a>
-                <a href="/case_study" class="hover:text-gray-600 text-base py-2 border-b">Case Studies</a>
-                <a href="/artworks" class="hover:text-gray-600 text-base py-2">Artworks</a>
+                <a href="/about_me" class="hover:text-green-900 text-base py-2 border-b">About me</a>
+                <a href="/projects" class="hover:text-green-900 text-base py-2 border-b">Projects</a>
+                <a href="/certification" class="hover:text-green-900 text-base py-2 border-b">Certifications</a>
+                <a href="/devlogs" class="hover:text-green-900 text-base py-2 border-b">Devlogs</a>
+                <a href="/case_study" class="hover:text-green-900 text-base py-2 border-b">Case Studies</a>
+                <a href="/artworks" class="hover:text-green-900 text-base py-2">Artworks</a>
             </div>
         </div>
 
@@ -65,7 +63,7 @@
             </div>
 
             <div class="bg-white h-auto py-4 flex flex-wrap items-center justify-center gap-2 md:gap-3">
-                <a href="javascript:;"
+                <a href="https://www.facebook.com/karuloos" target="_blank"
                 class="p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-100">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 71 72"
                 fill="none">
@@ -75,7 +73,7 @@
                 </svg>
                 </a>
 
-                <a href="javascript:;"
+                <a href="https://www.linkedin.com/in/karuloos/" target="_blank"
                 class="p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-100">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"
                 fill="none">
@@ -84,7 +82,7 @@
                 fill="#111827" />
                 </svg></a>
 
-                <a href="javascript:;"
+                <a href="mailto:cmcvldz231@gmail.com?subject=Inquiry from Portfolio&body=Hi there, I saw your portfolio and..." target="_blank"
                 class="p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-100">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"
                 fill="none">
@@ -108,6 +106,10 @@
             </div>
         </div>
     </footer>
+
+    <a href="{{route('login')}}" target="_blank" class="fixed bottom-8 right-12 bg-green-900 hover:bg-green-700 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 z-50">
+        <img src="{{ asset('svg/personal-logo-white.svg') }}" alt="Icon" class="size-10">
+    </a>
 
     <script>
         const menuToggle = document.getElementById('menuToggle');

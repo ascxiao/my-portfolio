@@ -17,31 +17,31 @@
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title *</label>
                 <input type="text" name="title" id="title" value="{{ old('title') }}" required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
             <div class="mb-4">
                 <label for="creation_date" class="block text-sm font-medium text-gray-700 mb-2">Creation Date *</label>
                 <input type="date" name="creation_date" id="creation_date" value="{{ old('creation_date', now()->format('Y-m-d')) }}" required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
             <div class="mb-4">
                 <label for="tags" class="block text-sm font-medium text-gray-700 mb-2">Tags (comma-separated)</label>
                 <input type="text" name="tags" id="tags" value="{{ old('tags') }}" placeholder="Project Management, UI/UX, Game"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
                 <p class="text-xs text-gray-500 mt-1">Separate tags with commas</p>
             </div>
 
             <div class="mb-4">
                 <label for="source" class="block text-sm font-medium text-gray-700 mb-2">Upload Artwork</label>
                 <input type="file" name="source" id="source" accept="image/*"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
 
             <div class="flex items-center gap-4">
-                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md">
+                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
                     Add Artwork
                 </button>
                 <a href="{{ route('artworks.index') }}" class="text-gray-600 hover:text-gray-900">Cancel</a>

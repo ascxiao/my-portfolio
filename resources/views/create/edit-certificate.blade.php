@@ -18,42 +18,42 @@
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title</label>
                 <input type="text" name="title" id="title" value="{{$certificate->title}}"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
             <div class="mb-4">
                 <label for="provider" class="block text-sm font-medium text-gray-700 mb-2">Provider</label>
                 <input type="text" name="provider" id="provider" value="{{$certificate->provider}}"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
             <div class="mb-4">
                 <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
                 <textarea name="description" id="description" rows="6"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ old('description', $certificate->description) }}</textarea>
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">{{ old('description', $certificate->description) }}</textarea>
             </div>
 
             <div class="mb-4">
                 <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Change Image</label>
                 <input type="file" name="image" id="image" accept="image/*"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
                 <p class="text-xs text-gray-500 mt-1">Current: {{ basename($certificate->image) }}</p>
             </div>
 
             <div class="mb-4">
                 <label for="acquired_date" class="block text-sm font-medium text-gray-700 mb-2">Acquired Date</label>
                 <input type="acquired_date" name="acquired_date" id="acquired_date" value="{{ old('acquired_date', $certificate->acquired_date->format('Y-m-d')) }}" required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
             <div class="mb-4">
                 <label for="link" class="block text-sm font-medium text-gray-700 mb-2">External Link</label>
                 <input type="url" name="link" id="link" value="{{$certificate->link}}" placeholder="https://example.com"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
             <div class="flex items-center gap-4">
-                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md">
+                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
                     Update Certificate
                 </button>
                 <a href="{{ route('certificates.index') }}" class="text-gray-600 hover:text-gray-900">Cancel</a>

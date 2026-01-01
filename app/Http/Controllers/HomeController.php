@@ -15,6 +15,6 @@ class HomeController extends Controller
     $certifications = Certification::orderBy('created_at', 'desc')->limit(3)->get();
     $cases = CaseStudy::orderBy('created_at', 'desc')->limit(3)->get();
 
-        return view('welcome', ['projects'=>$projects, 'certifications'=>$certifications, 'cases'=>$cases]);
+        return view('welcome', compact('projects', 'certifications', 'cases'));
     }
 }

@@ -15,7 +15,7 @@
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title</label>
                 <input type="text" name="title" id="title" value="{{ $case->title }}"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
                 @error('title')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -24,7 +24,7 @@
             <div class="mb-4">
                 <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Upload Cover Photo</label>
                 <input type="file" name="image" id="image" accept="image/*"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
                 @error('image')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -39,7 +39,7 @@
             <div class="mb-4">
                 <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
                 <textarea name="description" id="description" rows="6"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ $case->description }}</textarea>
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">{{ $case->description }}</textarea>
                 @error('description')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -48,7 +48,7 @@
             <div class="mb-4">
                 <label for="tags" class="block text-sm font-medium text-gray-700 mb-2">Tags (comma-separated)</label>
                 <input type="text" name="tags" id="tags" value="{{ old('tags', $case->tags ? implode(', ', $case->tags) : '') }}" placeholder="Project Management, UI/UX, Game"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
                 <p class="text-xs text-gray-500 mt-1">Separate tags with commas</p>
                 @error('tags')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -58,20 +58,20 @@
             <div class="mb-4">
                 <label for="date" class="block text-sm font-medium text-gray-700 mb-2">Date</label>
                 <input type="date" name="date" id="date" value="{{ $case->date ? $case->date->format('Y-m-d') : '' }}"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
             </div>
 
             <div class="mb-4">
                 <label for="duration" class="block text-sm font-medium text-gray-700 mb-2">Duration (in weeks)</label>
                 <input type="text" name="duration" id="duration" value="{{ $case->duration }}" pattern="[0-9]+" inputmode="numeric"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
                     oninput="this.value = this.value.replace(/[^0-9]/g, '')">
             </div>
 
             <div class="mb-4">
                 <label for="role" class="block text-sm font-medium text-gray-700 mb-2">Role</label>
                 <input type="text" name="role" id="role" value="{{ $case->role }}"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
                 @error('role')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -80,7 +80,7 @@
             <div class="mb-4">
                 <label for="team" class="block text-sm font-medium text-gray-700 mb-2">Team</label>
                 <input type="text" name="team" id="team" value="{{ $case->team }}"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
                 @error('team')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -140,7 +140,7 @@
             </button>
 
             <div class="flex items-center gap-4">
-                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md">
+                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
                     Create Case Study
                 </button>
                 <a href="{{ route('cases.index') }}" class="text-gray-600 hover:text-gray-900">Cancel</a>
