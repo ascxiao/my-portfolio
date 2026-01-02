@@ -92,5 +92,8 @@ RUN php artisan route:cache && php artisan view:cache
 # Expose port
 EXPOSE 80
 
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 # Start supervisor
-CMD ["/start.sh", "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["./start.sh", "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
