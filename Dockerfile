@@ -89,11 +89,10 @@ EOF
 # Only cache routes and views. NEVER cache config here.
 RUN php artisan route:cache && php artisan view:cache
 
+RUN chmod +x /var/www/html/start.sh
+
 # Expose port
 EXPOSE 80
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-
 # Start supervisor
-CMD ["./start.sh", "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/var/www/html/start.sh", "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
