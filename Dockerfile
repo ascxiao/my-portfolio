@@ -93,4 +93,4 @@ RUN php artisan route:cache && php artisan view:cache
 EXPOSE 80
 
 # Start supervisor
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf", "/start.sh"]
+CMD ["/start.sh", "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
