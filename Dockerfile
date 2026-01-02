@@ -29,8 +29,8 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Install system dependencies for Postgres
-RUN apt-get update && apt-get install -y libpq-dev
+# Install system dependencies for Postgres (Alpine version)
+RUN apk add --no-cache postgresql-dev
 
 # Install the PHP Postgres extension
 RUN docker-php-ext-install pdo pdo_pgsql
