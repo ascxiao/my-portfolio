@@ -81,10 +81,13 @@ stderr_logfile=/dev/stderr
 stderr_logfile_maxbytes=0
 EOF
 
-# Laravel optimization
-RUN php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache
+# # Laravel optimization
+# RUN php artisan config:cache && \
+#     php artisan route:cache && \
+#     php artisan view:cache
+
+# Only cache routes and views. NEVER cache config here.
+RUN php artisan route:cache && php artisan view:cache
 
 # Expose port
 EXPOSE 80
