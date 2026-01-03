@@ -74,7 +74,7 @@ class ProjectController extends Controller
 
         if ($request->hasFile('image')) {
             if ($project->image) {
-                Storage::disk('public')->delete($project->image);
+                Storage::disk('s3')->delete($project->image);
             }
             $validated['image'] = $request->file('image')->store('images', 's3');
         }

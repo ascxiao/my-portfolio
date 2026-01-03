@@ -73,4 +73,30 @@ Route::put('/admin/projects/{project}', [ProjectController::class, 'update'])->n
 Route::delete('/admin/projects/del/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
 Route::get('/admin/projects', [ProjectController::class, 'admin_index'])->name('projects.index');
 
+use Illuminate\Support\Facades\Storage;
+
+Route::get('/debug-upload', function() {
+    try {
+        // 1. Force the S3 disk configuration to throw exceptions
+        config(['filesystems.disks.s3.throw' => true]);
+
+        // 2. Try to upload a test file
+        echo "Attempting upload to bucket: " . config('filesystems.disks.s3.bucket') . "...<br>";
+        
+        $result = Storage::disk('s3')->put('debug_test.txt', 'This is a test from Render.');
+        
+        // 3. Check results
+        if ($result) {
+            return "✅ SUCCESS! File uploaded. Check your Supabase bucket now.";
+        } else {
+            return "❌ FAILED. The upload returned 'false' but gave no error message.";
+        }
+    } catch (\Exception $e) {
+        // 4. CATCH THE ERROR
+        return "<h1>💥 ERROR DETECTED 💥</h1>" .
+               "<strong>Type:</strong> " . get_class($e) . "<br>" .
+               "<strong>Message:</strong> " . $e->getMessage();
+    }
+});
+
 require __DIR__.'/auth.php';
