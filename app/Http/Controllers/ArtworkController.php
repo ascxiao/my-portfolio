@@ -40,7 +40,7 @@ class ArtworkController extends Controller
         }
 
         if ($request->hasFile('source')) {
-            $validated['source'] = $request->file('source')->store('images', 'public');
+            $validated['source'] = $request->file('source')->store('images', 's3');
         }
 
         Artwork::create($validated);

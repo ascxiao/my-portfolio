@@ -51,7 +51,7 @@ class DevlogController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 's3');
         }
 
         $config = [
@@ -104,7 +104,7 @@ class DevlogController extends Controller
             if ($devlog->image) {
                 Storage::disk('public')->delete($devlog->image);
             }
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 's3');
         }
 
         if (isset($validated['content'])) {

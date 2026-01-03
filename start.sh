@@ -15,6 +15,9 @@ php artisan route:cache
 echo "Running migrations..."
 php artisan migrate --force
 
+echo "Linking storage..."
+php artisan storage:link
+
 echo "Starting Supervisor..."
 # This is crucial! It executes the command passed from the Dockerfile CMD
 # (which is: /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf)

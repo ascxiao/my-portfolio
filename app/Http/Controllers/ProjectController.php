@@ -42,7 +42,7 @@ class ProjectController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 's3');
         }
 
         Project::create($validated);
@@ -76,7 +76,7 @@ class ProjectController extends Controller
             if ($project->image) {
                 Storage::disk('public')->delete($project->image);
             }
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 's3');
         }
 
         $project->update($validated);

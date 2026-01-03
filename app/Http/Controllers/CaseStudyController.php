@@ -55,7 +55,7 @@ class CaseStudyController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 's3');
         }
 
         $config = [
@@ -113,7 +113,7 @@ class CaseStudyController extends Controller
             if ($case->image) {
                 Storage::disk('public')->delete($case->image);
             }
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 's3');
         }
 
         if (isset($validated['content'])) {

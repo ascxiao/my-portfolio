@@ -38,7 +38,7 @@ class CertificationController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 's3');
         }
 
         Certification::create($validated);
@@ -68,7 +68,7 @@ class CertificationController extends Controller
             if ($certificate->image) {
                 Storage::disk('public')->delete($certificate->image);
             }
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 's3');
         }
 
         $certificate->update($validated);
