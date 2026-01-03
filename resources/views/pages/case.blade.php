@@ -70,7 +70,7 @@
 
         <!-- Hero Image -->
         <div class="mb-16">
-            <img src={{asset('storage/'.$case->image)}}
+            <img src={{Storage::url($case->image)}}
                  alt={{$case->title}} 
                  class="w-full rounded-2xl shadow-lg">
         </div>

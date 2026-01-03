@@ -31,7 +31,7 @@
 
                 <!-- Image Preview -->
                 <div class="mt-3" id="image-preview-container" style="display: none;">
-                    <img id="preview-image" src='{{asset('storage/'.$devlog->image)}}' alt="Preview" class="max-w-xs rounded-md border border-gray-300">
+                    <img id="preview-image" src='{{Storage::url($devlog->image)}}' alt="Preview" class="max-w-xs rounded-md border border-gray-300">
                 </div>
                 <p class="text-xs text-gray-500 mt-1">Current: {{ basename($devlog->image) }}</p>
             </div>

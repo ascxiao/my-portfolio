@@ -70,9 +70,9 @@ class ArtworkController extends Controller
 
         if ($request->hasFile('source')) {
             if ($artwork->source) {
-                Storage::disk('public')->delete($artwork->source);
+                Storage::disk('s3')->delete($artwork->source);
             }
-            $validated['source'] = $request->file('source')->store('images', 'public');
+            $validated['source'] = $request->file('source')->store('images', 's3');
         }
 
         $artwork->update($validated);
@@ -86,7 +86,7 @@ class ArtworkController extends Controller
         $artwork = Artwork::findOrFail($id);
         
         if ($artwork->image) {
-            Storage::disk('public')->delete($artwork->image);
+            Storage::disk('s3')->delete($artwork->image);
         }
 
         $artwork->delete();

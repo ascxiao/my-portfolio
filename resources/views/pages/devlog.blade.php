@@ -32,7 +32,7 @@
 
         <!-- Featured Image -->
         <div class="rounded-xl overflow-hidden shadow-lg mb-8">
-            <img src={{asset('storage/'.$devlog->image)}} 
+            <img src={{Storage::url($devlog->image)}} 
                     alt={{$devlog->title}} 
                     class="w-full h-auto">
         </div>

@@ -111,7 +111,7 @@ class CaseStudyController extends Controller
 
         if ($request->hasFile('image')) {
             if ($case->image) {
-                Storage::disk('public')->delete($case->image);
+                Storage::disk('s3')->delete($case->image);
             }
             $validated['image'] = $request->file('image')->store('images', 's3');
         }
@@ -151,7 +151,7 @@ class CaseStudyController extends Controller
         $case = CaseStudy::findOrFail($id);
         
         if ($case->image) {
-            Storage::disk('public')->delete($case->image);
+            Storage::disk('s3')->delete($case->image);
         }
 
         $case->delete();

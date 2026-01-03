@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex flex-col md:flex-row justify-around bg-white overflow-hidden shadow-sm sm:rounded-lg py-4 px-8">
     <div class="flex items-center w-128 h-96 lg:h-128 aspect-video md:p-16">
-        <img id="preview-image" src="{{asset('storage/'.$certificate->image)}}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+        <img id="preview-image" src="{{Storage::url($certificate->image)}}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
     </div>
 
     <div class="p-6">

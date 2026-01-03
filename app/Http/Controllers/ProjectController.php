@@ -63,7 +63,7 @@ class ProjectController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'tags' => 'nullable|string',
-            'image' => 'required|image|max:2048',
+            'image' => 'image|max:2048',
             'duration' => 'required|string|max:64',
             'link' => 'required|url'
         ]);
@@ -90,7 +90,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         
         if ($project->image) {
-            Storage::disk('public')->delete($project->image);
+            Storage::disk('s3')->delete($project->image);
         }
 
         $project->delete();
