@@ -108,22 +108,22 @@ class DevlogController extends Controller
         }
 
         if (isset($validated['content'])) {
-            $config = [
-                'HTML.Allowed' => 'p[class],br,strong,em,u,s,h1,h2,h3,h4,h5,h6,blockquote,code,pre[class],ol[class],ul[class],li[class],a[href|target|title|class],img[src|alt|width|height|title|class],iframe[src|width|height|allowfullscreen],video[class],source[src|type],div[class],span[class]',
-                'HTML.SafeIframe' => true,
-                'URI.SafeIframeRegexp' => '%^(?:https?:)?//(?:www\.)?(?:youtube(?:-nocookie)?\.com/embed/|vimeo\.com/video/)%',
-                'URI.AllowedSchemes' => ['http' => true, 'https' => true, 'data' => true],
-                'Attr.AllowedFrameTargets' => ['_blank', '_self'],
-                'Attr.AllowedClasses' => [
-                    'ql-code-block-container', 'ql-code-block', 'ql-syntax',
-                    'ql-align-center', 'ql-align-right', 'ql-align-justify', 'ql-align-left',
-                    'ql-indent-1', 'ql-indent-2', 'ql-indent-3', 'ql-indent-4', 'ql-indent-5', 'ql-indent-6', 'ql-indent-7', 'ql-indent-8',
-                    'ql-direction-rtl',
-                    'ql-size-small', 'ql-size-large', 'ql-size-huge',
-                    'ql-font-serif', 'ql-font-monospace',
-                    'ql-video',
-                ],
-            ];
+                $config = [
+                    'HTML.Allowed' => 'p[class],br,strong,em,u,s,h1,h2,h3,h4,h5,h6,blockquote,code,pre[class],ol[class],ul[class],li[class],a[href|target|title|class],img[src|alt|width|height|title|class],iframe[src|width|height|allowfullscreen],video[class],source[src|type],div[class],span[class]',
+                    'HTML.SafeIframe' => true,
+                    'URI.SafeIframeRegexp' => '%^(?:https?:)?//(?:www\.)?(?:youtube(?:-nocookie)?\.com/embed/|vimeo\.com/video/)%',
+                    'URI.AllowedSchemes' => ['http' => true, 'https' => true, 'data' => true],
+                    'Attr.AllowedFrameTargets' => ['_blank', '_self'],
+                    'Attr.AllowedClasses' => [
+                        'ql-code-block-container', 'ql-code-block', 'ql-syntax',
+                        'ql-align-center', 'ql-align-right', 'ql-align-justify', 'ql-align-left',
+                        'ql-indent-1', 'ql-indent-2', 'ql-indent-3', 'ql-indent-4', 'ql-indent-5', 'ql-indent-6', 'ql-indent-7', 'ql-indent-8',
+                        'ql-direction-rtl',
+                        'ql-size-small', 'ql-size-large', 'ql-size-huge',
+                        'ql-font-serif', 'ql-font-monospace',
+                        'ql-video',
+                    ],
+                ];
             $validated['content'] = app('purifier')->clean($validated['content'], $config);
         }
 

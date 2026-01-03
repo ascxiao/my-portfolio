@@ -40,6 +40,10 @@ RUN apk add --no-cache postgresql-dev
 # Install the PHP Postgres extension
 RUN docker-php-ext-install pdo pdo_pgsql
 
+# Increase PHP upload limits
+RUN echo "upload_max_filesize=50M" > /usr/local/etc/php/conf.d/uploads.ini \
+    && echo "post_max_size=50M" >> /usr/local/etc/php/conf.d/uploads.ini
+
 # Nginx configuration
 COPY <<EOF /etc/nginx/http.d/default.conf
 server {
@@ -47,6 +51,8 @@ server {
     server_name _;
     root /var/www/html/public;
     index index.php;
+
+    client_max_body_size 50M;
 
     location / {
         try_files \$uri \$uri/ /index.php?\$query_string;

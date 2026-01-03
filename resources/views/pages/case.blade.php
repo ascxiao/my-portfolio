@@ -75,8 +75,10 @@
                  class="w-full rounded-2xl shadow-lg">
         </div>
 
-        <div class="bg-white shadow-sm rounded-lg">
-            {!! $case->content !!}
+        <div class="bg-white shadow-sm rounded-lg p-6">
+            <div class="ql-editor">
+                {!! $case->content !!}
+            </div>
         </div> 
     </div>
 

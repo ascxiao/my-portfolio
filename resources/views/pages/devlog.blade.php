@@ -37,8 +37,10 @@
                     class="w-full h-auto">
         </div>
 
-        <div class="bg-white shadow-sm rounded-lg">
-            {!! $devlog->content !!}
+        <div class="bg-white shadow-sm rounded-lg p-6">
+            <div class="ql-editor">
+                {!! $devlog->content !!}
+            </div>
         </div>
 
     </div>

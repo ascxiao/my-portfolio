@@ -175,6 +175,32 @@ textarea {
     margin: 0.5em 0;
 }
 
+/* Indentation */
+.ql-editor .ql-indent-1 {
+    padding-left: 3em;
+}
+.ql-editor .ql-indent-2 {
+    padding-left: 6em;
+}
+.ql-editor .ql-indent-3 {
+    padding-left: 9em;
+}
+.ql-editor .ql-indent-4 {
+    padding-left: 12em;
+}
+.ql-editor .ql-indent-5 {
+    padding-left: 15em;
+}
+.ql-editor .ql-indent-6 {
+    padding-left: 18em;
+}
+.ql-editor .ql-indent-7 {
+    padding-left: 21em;
+}
+.ql-editor .ql-indent-8 {
+    padding-left: 24em;
+}
+
 /* Code blocks */
 .ql-code-block-container {
     background: #1f2937;
@@ -197,6 +223,20 @@ textarea {
     margin: 1em 0;
     color: #6b7280;
     font-style: italic;
+}
+
+/* Text alignment */
+.ql-editor .ql-align-center {
+    text-align: center;
+}
+.ql-editor .ql-align-right {
+    text-align: right;
+}
+.ql-editor .ql-align-justify {
+    text-align: justify;
+}
+.ql-editor .ql-align-left {
+    text-align: left;
 }
 
 /* Images */
