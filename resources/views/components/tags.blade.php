@@ -8,6 +8,8 @@
 		'Frontend' => 'bg-sky-100',
 		'Backend' => 'bg-purple-100',
         "Mobile" => 'bg-green-100'
+		'Python' => 'bg-yellow-200'
+		'Data Analaytics' => 'bg-blue-100'
 	];
 
 	$map = array_merge($defaultColors, is_array($colors) ? $colors : []);
