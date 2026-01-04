@@ -109,7 +109,7 @@
         </div>
     </footer>
 
-    <a href="{{route('login')}}" target="_blank" class="fixed bottom-8 right-12 bg-green-900 hover:bg-green-700 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 z-50">
+    <a href="{{route('login')}}" target="_blank" class="group hidden lg:flex fixed bottom-8 right-12 bg-green-900 hover:bg-green-700 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 z-50 opacity-0 hover:opacity-100">
         <img src="{{ asset('svg/personal-logo-white.svg') }}" alt="Icon" class="size-10">
     </a>
 
