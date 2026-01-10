@@ -37,8 +37,8 @@ class CaseStudyController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'image' => 'required|image|max:2048',
+            'description' => 'required|string,
+            'image' => 'required|image',
             'tags' => 'required|string',
             'metrics' => 'required|array|min:1',
             'content' => 'required|string',
@@ -96,8 +96,8 @@ class CaseStudyController extends Controller
     {
         $validated = $request->validate([
             'title' => 'string|max:255',
-            'description' => 'string|max:255',
-            'image' => 'image|max:2048',
+            'description' => 'string',
+            'image' => 'image',
             'tags' => 'string',
             'metrics' => 'array|min:1',
             'content' => 'string',

@@ -7,7 +7,7 @@
                 :img="$project['image']"
                 :tags="$project['tags']"
                 :duration="$project['duration']"
-                route="sample.com"></x-card>
+                :route="$project['link']"></x-card>
         @endforeach
     </x-segment>
 
@@ -17,7 +17,7 @@
                 :title="$certification['title']"
                 :desc="$certification['provider']"
                 :img="$certification['image']"
-                route="sample.com"></x-card>
+                :route="$certification['link']"></x-card>
         @endforeach
     </x-segment>
 
