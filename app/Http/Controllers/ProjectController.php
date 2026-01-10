@@ -30,9 +30,9 @@ class ProjectController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string',
             'tags' => 'nullable|string',
-            'image' => 'required|image|max:2048',
+            'image' => 'required|image',
             'duration' => 'required|string|max:64',
             'link' => 'required|url'
         ]);
@@ -61,9 +61,9 @@ class ProjectController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string',
             'tags' => 'nullable|string',
-            'image' => 'image|max:2048',
+            'image' => 'image',
             'duration' => 'required|string|max:64',
             'link' => 'required|url'
         ]);

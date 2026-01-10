@@ -38,8 +38,8 @@ class DevlogController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'image' => 'required|image|max:2048',
+            'description' => 'required|string',
+            'image' => 'required|image',
             'tags' => 'nullable|string',
             'content' => 'required|string',
             'creation_date'=> 'nullable|date',
@@ -92,8 +92,8 @@ class DevlogController extends Controller
     {
         $validated = $request->validate([
             'title' => 'string|max:255',
-            'description' => 'string|max:255',
-            'image' => 'image|max:2048',
+            'description' => 'string',
+            'image' => 'image',
             'tags' => 'nullable|string',
             'content' => 'string',
             'creation_date'=> 'nullable|date',
