@@ -31,7 +31,7 @@ class CertificationController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'provider' => 'required|string|max:255',
-            'description' => 'required|string,
+            'description' => 'required|string',
             'image' => 'required|image',
             'acquired_date'=> 'required|date',
             'link' => 'required|url',
@@ -58,7 +58,7 @@ class CertificationController extends Controller
         $validated = $request->validate([
             'title' => '|string|max:255',
             'provider' => 'required|string|max:255',
-            'description' => 'required|string,
+            'description' => 'required|string',
             'image' => 'image',
             'acquired_date'=> 'date',
             'link' => 'required|url',
