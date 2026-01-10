@@ -3,13 +3,14 @@
 @php
 	$defaultColors = [
 		'Game' => 'bg-rose-100',
+		'Game Art' => 'bg-blue-200',
 		'Project Management' => 'bg-green-100',
 		'UI/UX' => 'bg-yellow-100',
 		'Frontend' => 'bg-sky-100',
 		'Backend' => 'bg-purple-100',
-        "Mobile" => 'bg-green-100'
-		'Python' => 'bg-yellow-200'
-		'Data Analaytics' => 'bg-blue-100'
+        "Mobile" => 'bg-green-100',
+		'Python' => 'bg-yellow-200',
+		'Data Analaytics' => 'bg-blue-100',
 	];
 
 	$map = array_merge($defaultColors, is_array($colors) ? $colors : []);
