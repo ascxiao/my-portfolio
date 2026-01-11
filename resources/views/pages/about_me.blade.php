@@ -1,16 +1,16 @@
 <x-layout title="About me!">
-    <div class="flex flex-col gap-4 2xl:mx-48">
+    <div class="flex flex-col gap-4 max-w-7xl mx-auto">
         {{--Introduction --}}
         <div class="flex flex-col md:flex-row items-center md:px-8 justify-center">
-            <div class="w-2/3 text-justify md:p-8 lg:p-16">
-                <h1 class="text-xl md:text-3xl lg:text-3xl font-bold mb-4">Hi! I'm Carlos</h1>
+            <div class="md:w-2/3 text-justify md:p-8 lg:p-16">
+                <h1 class="text-xl md:text-3xl lg:text-3xl font-bold mb-4 text-center md:text-justify">Hi! I'm Carlos</h1>
                 <p class="mb-4 text-xs text-gray-700 leading-relaxed">I’m a sprouting bud figuring things out—turning ideas into actual, working things (artworks, games, projects, and the occasional “why didn’t I think of that sooner?” moment). I enjoy creating work that not only looks good but can also help or inspire the community around me.</p>
                 <p class="mb-4 text-xs text-gray-700 leading-relaxed">I believe in getting a little better every day, mostly by learning new things and trying them out until they click. My interests orbit around project management, data science, game development, UI/UX design, 2D illustration, and logo creation—basically, if it involves building something meaningful, I’m probably curious about it.</p>
                 <p class="text-xs text-gray-700 leading-relaxed">I’m based in the Philippines, where my creative fuel comes from a mild obsession with Filipino mythology and stories that feel ancient, strange, and powerful.</p>
             </div>
 
-            <div class="w-1/3 flex flex-row justify-center">
-                <img src='images/yb-4.png' alt="" class="lg:size-64 object-cover rounded-2xl aspect-square">
+            <div class="md:w-1/3 flex flex-row justify-center">
+                <img src='images/yb-4.png' alt="" class="size-48 lg:size-64 object-cover rounded-2xl aspect-square">
             </div>
         </div>
 
