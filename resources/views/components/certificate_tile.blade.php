@@ -7,8 +7,8 @@
     data-date="{{$date}}"
     data-link="{{$link}}"
 >
-    <div class="aspect-square sm:aspect-square md:aspect-video h-auto">
-        <img src={{Storage::url($image)}} alt="{{$certificate}}" class="w-full h-full object-cover">
+    <div class="aspect-square md:aspect-video h-auto">
+        <img src={{Storage::url($image)}} alt="{{$certificate}}" class="w-full h-full object-cover aspect-square md:aspect-video">
     </div>
 
     <div class="mx-2 sm:mx-8 md:mx-16">

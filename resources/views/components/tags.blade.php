@@ -11,6 +11,10 @@
         "Mobile" => 'bg-green-100',
 		'Python' => 'bg-yellow-200',
 		'Data Analaytics' => 'bg-blue-100',
+		'Laravel' => 'bg-red-200',
+		'PHP' => 'bg-sky-200',
+		'TypeScript' => 'bg-blue-300',
+		'React' => 'bg-yellow-200',
 	];
 
 	$map = array_merge($defaultColors, is_array($colors) ? $colors : []);
